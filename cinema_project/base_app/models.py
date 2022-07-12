@@ -37,3 +37,14 @@ class ContactMessages(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Cinema(models.Model):
+    name = models.CharField(max_length=30, default=None)
+    description = models.TextField(max_length=200, default=None)
+    city = models.CharField(max_length=100, default=None)
+    address = models.TextField(default=None)
+    hall = models.CharField(max_length=30, default=None)
+
+    def __str__(self):
+        return self.name

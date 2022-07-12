@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.conf import settings
+from .models import ContactMessages
 
 
 def login_user(request):
@@ -55,6 +56,8 @@ def contact_page(request):
             'message': request.POST['message'],
         }
         send_contact_email(user_data=contact_context)
+        contact_message = ContactMessages(**contact_context)
+        contact_message.save()
         return render(request, template_name='contact.html', context=contact_context)
     return render(request, template_name='contact.html')
 
