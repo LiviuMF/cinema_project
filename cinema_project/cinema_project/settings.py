@@ -121,3 +121,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SENDIN_BLUE = {
+    'api_key': "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",
+    'api_url': 'https://api.sendinblue.com/v3/smtp/email',
+}

@@ -1,0 +1,37 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="w3-container w3-content" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">GET IN TOUCH!</h2>
+      <div class="w3-col">
+        <form action="{% url 'contact' %}" target="_blank" method="POST">
+          {% csrf_token %}
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Email" required name="email">
+            </div>
+                        <div class="w3-half">
+              <input class="w3-input w3-border" type="number" placeholder="Phone" required name="phone">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="City" required name="city">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Cinema" required name="cinema">
+            </div>
+          </div>
+          <p>
+          <div class="w3-quarter">
+              <input class="w3-input w3-border" type="text" placeholder="Subject" required name="subject">
+            </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required name="message">
+          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

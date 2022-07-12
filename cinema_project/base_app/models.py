@@ -24,3 +24,16 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ContactMessages(models.Model):
+    name = models.CharField(max_length=200, default=None)
+    email = models.EmailField()
+    city = models.CharField(max_length=100, default=None)
+    phone = models.CharField(max_length=20, default=None)
+    cinema = models.CharField(max_length=50, default=None)
+    subject = models.CharField(max_length=30, default=None)
+    message = models.TextField(default=None)
+
+    def __str__(self):
+        return self.name
