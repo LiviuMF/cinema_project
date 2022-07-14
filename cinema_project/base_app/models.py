@@ -52,10 +52,11 @@ class Cinema(models.Model):
 
 
 class Schedule(models.Model):
-    movie = models.ForeignKey(Movie, default=None, on_delete=models.SET_DEFAULT)
-    hall = models.ForeignKey(Hall, default=None, on_delete=models.SET_DEFAULT)
+    movie = models.ForeignKey(
+        Movie, default=None, on_delete=models.SET_DEFAULT)
+    hall = models.ForeignKey(
+        Hall, default=None, on_delete=models.SET_DEFAULT)
     schedule_time = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
         return f"{self.hall}__{self.schedule_time}"
-

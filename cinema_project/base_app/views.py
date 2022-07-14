@@ -61,21 +61,23 @@ def contact_page(request):
         send_contact_email(user_data=contact_context)
         contact_message = ContactMessages(**contact_context)
         contact_message.save()
-        return render(request, template_name='contact.html', context=contact_context)
+        return render(request, template_name='contact.html',
+                      context=contact_context)
     return render(request, template_name='contact.html')
 
 
 def fetch_playing_movies(request):
     last_7_days = days_ago(7)
     schedules = Schedule.objects.filter(schedule_time__gte=last_7_days)
-    paginator = Paginator(schedules, 5)
+    paginator = Paginator(schedules, per_page=5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, template_name="now_playing.html", context={"page_obj": page_obj})
+    return render(request, template_name="now_playing.html",
+                  context={"page_obj": page_obj})
 
 
 def send_contact_email(user_data) -> None:
-    response = requests.post(
+    requests.post(
         url=settings.SENDIN_BLUE["api_url"],
         headers={
             'content-type': 'application/json',
@@ -93,14 +95,14 @@ def send_contact_email(user_data) -> None:
                 }
             ],
             "subject": user_data['subject'] or 'Message from Cinema X website',
-            "htmlContent": f"<html><head></head><body><p>Hello,"
-                           f"</p>You've received a new email from {user_data['name']},"
-                           f"<p> message: {user_data['message']}</p>"
-                           f"<p>Other contact details:</p>"
-                           f"<p>Phone number: {user_data['phone']}</p>"
-                           f"<p>City: {user_data['city']}</p>"
-                           f"<p>Cinema: {user_data['cinema']}</p>"
-                           f"</body></html>"
+            "htmlContent":
+                f"<html><head></head><body><p>Hello,"
+                f"</p>Received a new email from {user_data['name']},"
+                f"<p> message: {user_data['message']}</p>"
+                f"<p>Other contact details:</p>"
+                f"<p>Phone number: {user_data['phone']}</p>"
+                f"<p>City: {user_data['city']}</p>"
+                f"<p>Cinema: {user_data['cinema']}</p>"
+                f"</body></html>"
         })
     )
-    print(f"Sent email to liviu.m.farcas@gmail.com from Cinema X successfully with response {response.content}")
