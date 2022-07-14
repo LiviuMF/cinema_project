@@ -6,7 +6,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.conf import settings
-from .models import ContactMessages
+from django.core.paginator import Paginator
+
+from .models import ContactMessages, Schedule
+from .utils import days_ago
 
 
 def login_user(request):
@@ -60,6 +63,15 @@ def contact_page(request):
         contact_message.save()
         return render(request, template_name='contact.html', context=contact_context)
     return render(request, template_name='contact.html')
+
+
+def fetch_playing_movies(request):
+    last_7_days = days_ago(7)
+    schedules = Schedule.objects.filter(schedule_time__gte=last_7_days)
+    paginator = Paginator(schedules, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, template_name="now_playing.html", context={"page_obj": page_obj})
 
 
 def send_contact_email(user_data) -> None:

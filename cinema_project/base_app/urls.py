@@ -6,5 +6,6 @@ urlpatterns = [
     path('login/', views.login_user, name='login_page'),
     path('', views.homepage, name='homepage'),
     path('register/', views.register_user, name='register_page'),
-    path('contact/', views.contact_page, name='contact')
+    path('contact/', views.contact_page, name='contact'),
+    path('now_playing/', views.fetch_playing_movies, name='now_playing'),
 ]

@@ -1,0 +1,45 @@
+{% extends 'base_template.html' %}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Now Playing</title>
+</head>
+<body>
+<h2 align="center">Now Playing in our Movie Halls:</h2>
+{% for schedule in page_obj %}
+
+<div class="movies-container">
+        <div class="movie-container">
+            <div class="movie-poster">
+                <img src="{{schedule.movie.poster.url}}"
+                     alt="{{schedule.movie}}" width="160px" height="200"></div>
+            <p>Movie: {{schedule.movie}}</p>
+            <p>Year: {{schedule.movie.year}}</p>
+            <p>Hall: {{schedule.hall}}</p>
+            <p>Date: {{schedule.schedule_time}}</p>
+            <button>Book now</button>
+        </div>
+</div>
+{% endfor %}
+<div class="pagination" align="center">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
+{% endblock %}

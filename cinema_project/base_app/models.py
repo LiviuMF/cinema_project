@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 class Hall(models.Model):
@@ -12,7 +13,7 @@ class Hall(models.Model):
 
 class Movie(models.Model):
     name = models.CharField(max_length=200, default=None)
-    poster = models.ImageField(default=None)
+    poster = models.ImageField(upload_to="static/media/", default=None)
     description = models.TextField(default=None)
     year = models.FloatField(default=None)
     director = models.CharField(max_length=200, default=None)
@@ -48,3 +49,13 @@ class Cinema(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Schedule(models.Model):
+    movie = models.ForeignKey(Movie, default=None, on_delete=models.SET_DEFAULT)
+    hall = models.ForeignKey(Hall, default=None, on_delete=models.SET_DEFAULT)
+    schedule_time = models.DateTimeField(default=datetime.now())
+
+    def __str__(self):
+        return f"{self.hall}__{self.schedule_time}"
+
