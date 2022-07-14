@@ -7,9 +7,10 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.conf import settings
 from django.core.paginator import Paginator
+from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule
-from .utils import days_ago
+from .utils import days_ago, today
 
 
 def login_user(request):
@@ -66,6 +67,7 @@ def contact_page(request):
     return render(request, template_name='contact.html')
 
 
+@ratelimit(key='ip', rate='2/h')
 def fetch_playing_movies(request):
     last_7_days = days_ago(7)
     schedules = Schedule.objects.filter(schedule_time__gte=last_7_days)
