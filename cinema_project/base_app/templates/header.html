@@ -24,7 +24,13 @@ filter: invert(1) !important;
     <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cinema <img width="20px" height="20px" src="{% static '/media/test.png' %}" alt="My image"></a>
     <a href="/now_playing" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Now Playing</a>
     <a href="/contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact us</a>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    {% if user.is_authenticated %}
+    <a class="w3-right">Hi {{ user.username }}!</a>
+    <a href="{% url 'logout' %}" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Log out</a>
+    {% else %}
+   <p class="w3-right">You are not logged in</p><br><a class="w3-right" href="{% url 'login' %}">Log In</a>
+{% endif %}
+
   </div>
 </div>
 <div class="w3-content" style="max-width:2000px;margin-top:12px">

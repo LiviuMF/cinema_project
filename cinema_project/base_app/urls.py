@@ -5,7 +5,10 @@ from . import views
 urlpatterns = [
     path('login/', views.login_user, name='login_page'),
     path('', views.homepage, name='homepage'),
-    path('register/', views.register_user, name='register_page'),
+    path('register/', views.signup, name='register_page'),
     path('contact/', views.contact_page, name='contact'),
     path('now_playing/', views.fetch_playing_movies, name='now_playing'),
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
+        views.activate, name='activate'),
 ]
+

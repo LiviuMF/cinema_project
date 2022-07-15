@@ -14,12 +14,11 @@
         <div class="movie-container">
             <div class="movie-poster">
                 <img src="{{schedule.movie.poster.url}}"
-                     alt="{{schedule.movie}}" width="160px" height="200"></div>
+                     alt="{{schedule.movie}}" width="120px" height="160"></div>
             <p>Movie: {{schedule.movie}}</p>
             <p>Year: {{schedule.movie.year}}</p>
-            <p>Hall: {{schedule.hall}}</p>
-            <p>Date: {{schedule.schedule_time}}</p>
-            <button>Book now</button>
+            <p>Duration: {{schedule.movie.duration}}</p>
+            <p>Director: {{schedule.movie.director}}</p>
         </div>
 </div>
 {% endfor %}
