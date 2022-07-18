@@ -9,7 +9,6 @@
 <body>
 <h2 align="center">All movies</h2>
 {% for schedule in page_obj %}
-
 <div class="movies-container">
         <div class="movie-container">
             <div class="movie-poster">
@@ -17,7 +16,7 @@
                      alt="{{schedule.movie}}" width="120px" height="160"></div>
             <p>Movie: {{schedule.movie}}</p>
             <p>Year: {{schedule.movie.year}}</p>
-            <p>Duration: {{schedule.movie.duration}}</p>
+            <p>Duration: {{schedule.movie.duration}}'</p>
             <p>Director: {{schedule.movie.director}}</p>
         </div>
 </div>

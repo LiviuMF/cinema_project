@@ -27,7 +27,7 @@ def login_user(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('now_playing')
+            return redirect('bookings')
         else:
             messages.success(request, message='There was an error logging in')
             HttpResponse('Invalid credentials')

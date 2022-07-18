@@ -14,3 +14,10 @@
 .movie-poster{
     float:right;
 }
+
+.booking-button{
+    float:right;
+    margin-top:-80px;
+    width:150px;
+    height:30px;
+}

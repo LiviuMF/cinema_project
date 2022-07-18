@@ -1,4 +1,5 @@
 {% extends 'base_template.html' %}
+{% block content%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +7,21 @@
     <title>Now Playing</title>
 </head>
 <body>
-{% block content %}
-<div class="movies_container">
+<h2 align="center">Available movies</h2>
 {% for booking in bookings %}
-<div class="movie_container">
-<p>{{booking.movie}}</p>
-<p>{{booking.hall}}</p>
-<p>{{booking.schedule_time}}</p>
-{% if user.is_authenticated %}
-<button>Book Now</button>
-    </div>
-{% endif %}
+<div class="movies-container">
+        <div class="movie-container">
+            <p>Movie: {{booking.movie}}</p>
+            <p>Hall: {{booking.hall}}</p>
+            <p>Playing Time: {{booking.schedule_time}}</p>
+            {% if user.is_authenticated %}
+            <div class="booking-button">
+                <button type="button">Book now</button>
+            </div>
+            {% endif %}
+        </div>
+</div>
 {% endfor %}
-    </div>
 </body>
 </html>
 {% endblock %}

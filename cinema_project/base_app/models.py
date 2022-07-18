@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 
 
 class Hall(models.Model):
@@ -60,3 +61,16 @@ class Schedule(models.Model):
 
     def __str__(self):
         return f"{self.hall}__{self.schedule_time}"
+
+
+class Reservation(models.Model):
+    user = models.ForeignKey(
+        User, default=None, on_delete=models.CASCADE
+    )
+    schedule = models.ForeignKey(
+        Schedule, default=None, on_delete=models.CASCADE
+    )
+
+
+class Seat(models.Model):
+    reservation = models.ForeignKey(Reservation, default=None, on_delete=models.CASCADE)
