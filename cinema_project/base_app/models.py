@@ -20,7 +20,7 @@ class Movie(models.Model):
     imdb_link = models.CharField(max_length=400, default='https://imdb.com')
     imdb_id = models.FloatField(default=None)
     url = models.CharField(max_length=400, default=None)
-    duration = models.FloatField(default=None)
+    duration = models.IntegerField(default=None)
     hall = models.ForeignKey(Hall, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):

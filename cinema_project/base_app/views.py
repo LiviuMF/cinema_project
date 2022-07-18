@@ -92,6 +92,11 @@ def contact_page(request):
     return render(request, template_name='contact.html')
 
 
+def bookings(request):
+    schedules = Schedule.objects.filter(schedule_time__gte=today()).order_by('schedule_time')
+    return render(request, template_name='bookings.html', context={'bookings': schedules})
+
+
 def activate(request, uidb64, token):
     User = get_user_model()
     try:
@@ -109,7 +114,7 @@ def activate(request, uidb64, token):
 
 @ratelimit(key='ip', rate='2/h')
 def fetch_playing_movies(request):
-    next_7_days =  next_days(7)
+    next_7_days = next_days(7)
     schedules = Schedule.objects.filter(schedule_time__range=[today(), next_7_days])
     paginator = Paginator(schedules, per_page=5)
     page_number = request.GET.get('page')

@@ -1,0 +1,24 @@
+{% extends 'base_template.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Now Playing</title>
+</head>
+<body>
+{% block content %}
+<div class="movies_container">
+{% for booking in bookings %}
+<div class="movie_container">
+<p>{{booking.movie}}</p>
+<p>{{booking.hall}}</p>
+<p>{{booking.schedule_time}}</p>
+{% if user.is_authenticated %}
+<button>Book Now</button>
+    </div>
+{% endif %}
+{% endfor %}
+    </div>
+</body>
+</html>
+{% endblock %}
