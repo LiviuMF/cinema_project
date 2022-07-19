@@ -1,0 +1,5 @@
+Django==4.0.6
+Pillow==9.2.0
+psycopg2==2.9.3
+django-utils-six==2.0
+flake8==4.0.1
