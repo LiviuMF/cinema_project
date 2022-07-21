@@ -133,3 +133,6 @@ dmypy.json
 
 # Git
 .gitignore
+
+#env variables
+cinema_project/cinema_project/.env
