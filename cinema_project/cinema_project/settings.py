@@ -1,15 +1,24 @@
 from pathlib import Path
 import os
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+env = environ.Env()
+
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+if READ_DOT_ENV_FILE:
+    # OS environment variables take precedence over variables from .env
+    env.read_env(str(BASE_DIR / ".env"))
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!0(%djid9b^r3i6lw9*k)q2#!6v5#vkq_8sv#fe=adb5!*9+!b'
+SECRET_KEY = env("DJANGO_SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -123,8 +132,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SENDIN_BLUE = {
-    'api_key': "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",
-    'api_url': 'https://api.sendinblue.com/v3/smtp/email',
+    'api_key': env("SENDIN_BLUE_API_KEY"),
+    'api_url': env("SENDIN_BLUE_API_URL"),
 }
 
 LOGOUT_REDIRECT_URL = "/"

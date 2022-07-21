@@ -5,6 +5,6 @@ import cinema_project
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('base_app.urls')),
-    path('', include('django.contrib.auth.urls')),
+    path('cinema/', include('base_app.urls')),
+    path('cinema/', include('django.contrib.auth.urls')),
 ]

@@ -3,26 +3,16 @@ from datetime import datetime
 from django.contrib.auth.models import User
 
 
-class Hall(models.Model):
-    name = models.CharField(max_length=200, default=None)
-    description = models.TextField(max_length=400, default=None)
-    seats = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.name
-
-
 class Movie(models.Model):
     name = models.CharField(max_length=200, default=None)
     poster = models.ImageField(upload_to="static/media/", default=None)
     description = models.TextField(default=None)
-    year = models.FloatField(default=None)
+    year = models.IntegerField(default=None)
     director = models.CharField(max_length=200, default=None)
     imdb_link = models.CharField(max_length=400, default='https://imdb.com')
-    imdb_id = models.FloatField(default=None)
+    imdb_id = models.IntegerField(default=None)
     url = models.CharField(max_length=400, default=None)
     duration = models.IntegerField(default=None)
-    hall = models.ForeignKey(Hall, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
@@ -41,12 +31,21 @@ class ContactMessages(models.Model):
         return self.name
 
 
+class Hall(models.Model):
+    name = models.CharField(max_length=200, default=None)
+    description = models.TextField(max_length=400, default=None)
+    seats = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+
 class Cinema(models.Model):
     name = models.CharField(max_length=30, default=None)
     description = models.TextField(max_length=200, default=None)
     city = models.CharField(max_length=100, default=None)
     address = models.TextField(default=None)
-    hall = models.CharField(max_length=30, default=None)
+    hall = models.ForeignKey(Hall, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name

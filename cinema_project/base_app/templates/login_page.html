@@ -19,6 +19,9 @@
     <p>
     <input type="submit" id="login" value="Login">
     </p>
+    {% if error_message %}
+    <p>There was an error logging in: Invalid credentials!</p>
+    {% endif %}
   </form>
   <div id="create-account-wrap">
     <p>Not a member? <a href="{% url 'register_page' %}">Create Account</a><p>

@@ -1,21 +1,16 @@
-import requests
-import json
-
-from django.shortcuts import render, redirect, HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-from django.conf import settings
-from django.core.paginator import Paginator
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.contrib.auth import get_user_model
-from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
-from ratelimit.decorators import ratelimit
+from django.core.paginator import Paginator
+from django.shortcuts import render, redirect, HttpResponse
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 
+from ratelimit.decorators import ratelimit
+
 from .models import ContactMessages, Schedule, Movie
-from .utils import next_days, today
+from .utils import next_days, today, send_contact_email
 from .forms import SignupForm
 from .token import account_activation_token
 
@@ -29,11 +24,15 @@ def login_user(request):
             login(request, user)
             return redirect('bookings')
         else:
-            messages.success(request, message='There was an error logging in')
-            HttpResponse('Invalid credentials')
-            return redirect('login_page')
+            messages.error(request, message='There was an error logging in')
+            return render(request, template_name='login_page.html', context={'error_message': messages})
     else:
         return render(request, 'login_page.html')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('homepage')
 
 
 def homepage(request):
@@ -94,6 +93,7 @@ def contact_page(request):
 
 def bookings(request):
     schedules = Schedule.objects.filter(schedule_time__gte=today()).order_by('schedule_time')
+    print(schedules)
     return render(request, template_name='bookings.html', context={'bookings': schedules})
 
 
@@ -121,36 +121,3 @@ def fetch_playing_movies(request):
     page_obj = paginator.get_page(page_number)
     return render(request, template_name="now_playing.html",
                   context={"page_obj": page_obj})
-
-
-def send_contact_email(user_data: dict) -> None:
-    response = requests.post(
-        url=settings.SENDIN_BLUE["api_url"],
-        headers={
-            'content-type': 'application/json',
-            'api-key': f'{settings.SENDIN_BLUE["api_key"]}'
-        },
-        data=json.dumps({
-            "sender": {
-              "name": "Cinema X ",
-              "email": f"{user_data['email'].split('@')[0]}@test.com",
-            },
-            "to": [
-                {
-                    "email": "liviu.m.farcas@gmail.com",
-                    "name": "Cinema X HQ"
-                }
-            ],
-            "subject": user_data['subject'] or 'Message from Cinema X website',
-            "htmlContent":
-                f"<html><head></head><body><p>Hello,"
-                f"</p>Received a new email from {user_data['name']},"
-                f"<p> message: {user_data['message']}</p>"
-                f"<p>Other contact details:</p>"
-                f"<p>Phone number: {user_data['phone']}</p>"
-                f"<p>City: {user_data['city']}</p>"
-                f"<p>Cinema: {user_data['cinema']}</p>"
-                f"</body></html>"
-        })
-    )
-    print(f'Successfuly sent email with response: {response.content}')
