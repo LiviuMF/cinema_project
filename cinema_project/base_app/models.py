@@ -11,7 +11,7 @@ class Movie(models.Model):
     director = models.CharField(max_length=200, default=None)
     imdb_link = models.CharField(max_length=400, default='https://imdb.com')
     imdb_id = models.IntegerField(default=None)
-    url = models.CharField(max_length=400, default=None)
+    imdb_rating = models.FloatField(default=None)
     duration = models.IntegerField(default=None)
 
     def __str__(self):
