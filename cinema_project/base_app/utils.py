@@ -1,6 +1,8 @@
+import csv
 import datetime
 import json
 import requests
+
 from django.conf import settings
 
 
@@ -44,3 +46,9 @@ def send_contact_email(user_data: dict) -> None:
         })
     )
     print(f'Successfuly sent email with response: {response.content}')
+
+
+def fetch_from_csv(file_name) -> list[dict]:
+    with open(f'static/{file_name}.csv', 'r', encoding='utf-8') as f:
+        rows = csv.DictReader(f)
+        return [dict(row) for row in rows]

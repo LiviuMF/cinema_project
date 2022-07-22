@@ -32,7 +32,6 @@ def contact_page(request):
 
 def bookings(request):
     schedules = Schedule.objects.filter(schedule_time__gte=today()).order_by('schedule_time')
-    print(schedules)
     return render(request, template_name='bookings.html', context={'bookings': schedules})
 
 

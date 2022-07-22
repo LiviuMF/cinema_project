@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 
 class Movie(models.Model):
     name = models.CharField(max_length=200, default=None)
-    poster = models.ImageField(upload_to="static/media/", default=None)
+    poster_url = models.CharField(max_length=400, default=None)
     description = models.TextField(default=None)
     year = models.IntegerField(default=None)
     director = models.CharField(max_length=200, default=None)
     imdb_link = models.CharField(max_length=400, default='https://imdb.com')
-    imdb_id = models.IntegerField(default=None)
+    imdb_id = models.CharField(max_length=15, default=None)
     imdb_rating = models.FloatField(default=None)
     duration = models.IntegerField(default=None)
 
