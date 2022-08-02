@@ -82,6 +82,7 @@ class Reservation(models.Model):
     schedule = models.ForeignKey(
         Schedule, default=None, on_delete=models.CASCADE
     )
+    is_confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user}__{self.seat}__{self.schedule.schedule_time}"
