@@ -15,7 +15,11 @@ def next_days(days: int) -> datetime.datetime:
     return now + datetime.timedelta(days=days)
 
 
-def send_contact_email(user_data: dict) -> None:
+def send_email(
+        from_email: str,
+        html_content: str,
+        subject: str = '',
+):
     response = requests.post(
         url=settings.SENDIN_BLUE["api_url"],
         headers={
@@ -23,29 +27,16 @@ def send_contact_email(user_data: dict) -> None:
             'api-key': f'{settings.SENDIN_BLUE["api_key"]}'
         },
         data=json.dumps({
-            "sender": {
-              "name": "Cinema X ",
-              "email": f"{user_data['email'].split('@')[0]}@test.com",
-            },
-            "to": [
-                {
-                    "email": "liviu.m.farcas@gmail.com",
-                    "name": "Cinema X HQ"
-                }
-            ],
-            "subject": user_data['subject'] or 'Message from Cinema X website',
+            "sender": {"name": "Cinema X ",
+                        "email": f"{from_email.split('@')[0]}@test.com"},
+            "to": [{"email": "liviu.m.farcas@gmail.com",
+                    "name": "Cinema X HQ"}],
+            "subject": subject or 'Message from Cinema X website',
             "htmlContent":
-                f"<html><head></head><body><p>Hello,"
-                f"</p>Received a new email from {user_data['name']},"
-                f"<p> message: {user_data['message']}</p>"
-                f"<p>Other contact details:</p>"
-                f"<p>Phone number: {user_data['phone']}</p>"
-                f"<p>City: {user_data['city']}</p>"
-                f"<p>Cinema: {user_data['cinema']}</p>"
-                f"</body></html>"
+                f"<html><head></head><body>{html_content}</body></html>"
         })
     )
-    print(f'Successfuly sent email with response: {response.content}')
+    print(f'Successfully sent email with response: {response.content}')
 
 
 def fetch_from_csv(file_name) -> list[dict]:

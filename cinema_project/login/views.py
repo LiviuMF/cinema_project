@@ -8,7 +8,7 @@ from django.utils.encoding import force_bytes, force_str
 
 from .forms import SignupForm
 from .token import account_activation_token
-from .utils import send_contact_email
+from .utils import send_email
 
 
 def signup(request):
@@ -22,22 +22,16 @@ def signup(request):
             user.save()
 
             current_site = get_current_site(request)
-            message = render_to_string('acc_activate_email.html', {
+            activation_message = render_to_string('acc_activate_email.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            activation_form_data = {
-                'name': request.POST['username'],
-                'phone': 1234567,
-                'city': 'Cluj',
-                'cinema': 'Cinema X',
-                'email': request.POST['email'],
-                'subject': "activation link as been sent to your email address",
-                'message': message,
-            }
-            send_contact_email(user_data=activation_form_data)
+            send_email(
+                from_email=request.POST['email'],
+                subject="activation link as been sent to your email address",
+                html_content=f"<p>{activation_message}</p>")
             return HttpResponse('Please confirm your email address to complete the registration')
     else:
         form = SignupForm()

@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation
-from .utils import today, send_contact_email, next_days, fetch_from_csv
+from .utils import today, send_email, next_days, fetch_from_csv
 
 
 def homepage(request):
@@ -23,7 +23,14 @@ def contact_page(request):
             'subject': request.POST['subject'],
             'message': request.POST['message'],
         }
-        send_contact_email(user_data=contact_context)
+        send_email(from_email=contact_context['email'],
+                   subject=contact_context['subject'],
+                   html_content=f"<p> Cinema: {contact_context['cinema']} </p>"
+                                f"<p> City: {contact_context['city']}</p>"
+                                f"<p> Message: {contact_context['message']} </p>"
+                                f"<br><p> Contact Details:</p>"
+                                f"<p> Name: {contact_context['name']}</p>"
+                                f"<p> Phone: {contact_context['phone']}</p>")
         contact_message = ContactMessages(**contact_context)
         contact_message.save()
         return render(request, template_name='contact.html',
@@ -89,14 +96,24 @@ def seats_page(request, schedule_id):
 
 
 def reservation_page(request, schedule_id):
+    schedule_object = Schedule.objects.get(pk=schedule_id)
     if request.method == 'POST':
         seats = list(request.POST.keys())[1:]
+        user = User.objects.get(username=request.user)
         for seat in seats:
             reservation = Reservation(
-                user=User.objects.get(username=request.user),
-                schedule=Schedule.objects.get(pk=schedule_id),
+                user=user,
+                schedule=schedule_object,
                 seat=Seat.objects.get(pk=seat)
             )
             reservation.save()
+        send_email(
+            from_email='cinema@cinemax.ro',
+            subject='Confirmation on your reservation at Cinema X',
+            html_content=f"<p>This is your confirmation for {reservation.schedule.movie}</p>"
+                         f"<p>Name: {user}</p>"
+                         f"<p>Date/Time: {reservation.schedule.schedule_time}</p>"
+                         f"<p>Seats: {seats}</p>"
+        )
     return render(request, template_name='reservation_page.html', context={'reservation': reservation,
                                                                            'seats': seats})
