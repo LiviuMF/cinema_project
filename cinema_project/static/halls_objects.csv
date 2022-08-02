@@ -1,0 +1,288 @@
+name,description,seats,cinema
+movieplex_hall_01,Hall number: 1 of Movieplex Cinema from Bucuresti,150,Movieplex Cinema
+movieplex_hall_02,Hall number: 2 of Movieplex Cinema from Bucuresti,100,Movieplex Cinema
+movieplex_hall_03,Hall number: 3 of Movieplex Cinema from Bucuresti,190,Movieplex Cinema
+movieplex_hall_04,Hall number: 4 of Movieplex Cinema from Bucuresti,80,Movieplex Cinema
+cineplexx_baneasa_hall_01,Hall number: 1 of Cinema Cineplexx Baneasa from Bucuresti,50,Cinema Cineplexx Baneasa
+cineplexx_baneasa_hall_02,Hall number: 2 of Cinema Cineplexx Baneasa from Bucuresti,220,Cinema Cineplexx Baneasa
+cineplexx_baneasa_hall_03,Hall number: 3 of Cinema Cineplexx Baneasa from Bucuresti,140,Cinema Cineplexx Baneasa
+cineplexx_baneasa_hall_04,Hall number: 4 of Cinema Cineplexx Baneasa from Bucuresti,190,Cinema Cineplexx Baneasa
+cineplexx_baneasa_hall_05,Hall number: 5 of Cinema Cineplexx Baneasa from Bucuresti,240,Cinema Cineplexx Baneasa
+cineplexx_baneasa_hall_06,Hall number: 6 of Cinema Cineplexx Baneasa from Bucuresti,120,Cinema Cineplexx Baneasa
+first_class_–_băneasa_hall_01,Hall number: 1 of First Class Cinema – Băneasa from Bucuresti,120,First Class Cinema – Băneasa
+first_class_–_băneasa_hall_02,Hall number: 2 of First Class Cinema – Băneasa from Bucuresti,220,First Class Cinema – Băneasa
+first_class_–_băneasa_hall_03,Hall number: 3 of First Class Cinema – Băneasa from Bucuresti,200,First Class Cinema – Băneasa
+cineplexx_titan_hall_01,Hall number: 1 of Cinema Cineplexx Titan from Bucuresti,200,Cinema Cineplexx Titan
+cineplexx_titan_hall_02,Hall number: 2 of Cinema Cineplexx Titan from Bucuresti,220,Cinema Cineplexx Titan
+cineplexx_titan_hall_03,Hall number: 3 of Cinema Cineplexx Titan from Bucuresti,230,Cinema Cineplexx Titan
+happy_hall_01,Hall number: 1 of Happy Cinema from Bucuresti,120,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Bucuresti,60,Happy Cinema
+hollywood_multiplex_hall_01,Hall number: 1 of Cinema Hollywood Multiplex from Bucuresti,50,Cinema Hollywood Multiplex
+city_cotroceni_hall_01,Hall number: 1 of Cinema City Cotroceni from Bucuresti,140,Cinema City Cotroceni
+city_cotroceni_hall_02,Hall number: 2 of Cinema City Cotroceni from Bucuresti,200,Cinema City Cotroceni
+city_cotroceni_hall_03,Hall number: 3 of Cinema City Cotroceni from Bucuresti,90,Cinema City Cotroceni
+city_cotroceni_hall_04,Hall number: 4 of Cinema City Cotroceni from Bucuresti,190,Cinema City Cotroceni
+city_cotroceni_hall_05,Hall number: 5 of Cinema City Cotroceni from Bucuresti,180,Cinema City Cotroceni
+city_sun_plaza_hall_01,Hall number: 1 of Cinema City Sun Plaza from Bucuresti,150,Cinema City Sun Plaza
+city_sun_plaza_hall_02,Hall number: 2 of Cinema City Sun Plaza from Bucuresti,60,Cinema City Sun Plaza
+city_sun_plaza_hall_03,Hall number: 3 of Cinema City Sun Plaza from Bucuresti,190,Cinema City Sun Plaza
+city_sun_plaza_hall_04,Hall number: 4 of Cinema City Sun Plaza from Bucuresti,200,Cinema City Sun Plaza
+city_mega_mall_hall_01,Hall number: 1 of Cinema City Mega Mall from Bucuresti,190,Cinema City Mega Mall
+city_mega_mall_hall_02,Hall number: 2 of Cinema City Mega Mall from Bucuresti,50,Cinema City Mega Mall
+city_mega_mall_hall_03,Hall number: 3 of Cinema City Mega Mall from Bucuresti,170,Cinema City Mega Mall
+city_parklake_hall_01,Hall number: 1 of Cinema City ParkLake from Bucuresti,130,Cinema City ParkLake
+city_parklake_hall_02,Hall number: 2 of Cinema City ParkLake from Bucuresti,190,Cinema City ParkLake
+city_parklake_hall_03,Hall number: 3 of Cinema City ParkLake from Bucuresti,100,Cinema City ParkLake
+city_parklake_hall_04,Hall number: 4 of Cinema City ParkLake from Bucuresti,240,Cinema City ParkLake
+city_parklake_hall_05,Hall number: 5 of Cinema City ParkLake from Bucuresti,120,Cinema City ParkLake
+city_parklake_hall_06,Hall number: 6 of Cinema City ParkLake from Bucuresti,110,Cinema City ParkLake
+teca_eforie_hall_01,Hall number: 1 of Cinemateca Eforie from Bucuresti,240,Cinemateca Eforie
+teca_eforie_hall_02,Hall number: 2 of Cinemateca Eforie from Bucuresti,70,Cinemateca Eforie
+teca_eforie_hall_03,Hall number: 3 of Cinemateca Eforie from Bucuresti,160,Cinemateca Eforie
+teca_eforie_hall_04,Hall number: 4 of Cinemateca Eforie from Bucuresti,80,Cinemateca Eforie
+teca_eforie_hall_05,Hall number: 5 of Cinemateca Eforie from Bucuresti,110,Cinemateca Eforie
+teca_eforie_hall_06,Hall number: 6 of Cinemateca Eforie from Bucuresti,70,Cinemateca Eforie
+teca_union_hall_01,Hall number: 1 of Cinemateca Union from Bucuresti,200,Cinemateca Union
+teca_union_hall_02,Hall number: 2 of Cinemateca Union from Bucuresti,130,Cinemateca Union
+teca_union_hall_03,Hall number: 3 of Cinemateca Union from Bucuresti,60,Cinemateca Union
+teca_union_hall_04,Hall number: 4 of Cinemateca Union from Bucuresti,120,Cinemateca Union
+teca_union_hall_05,Hall number: 5 of Cinemateca Union from Bucuresti,170,Cinemateca Union
+teca_union_hall_06,Hall number: 6 of Cinemateca Union from Bucuresti,110,Cinemateca Union
+elvire_popesco_hall_01,Hall number: 1 of Cinema Elvire Popesco from Bucuresti,200,Cinema Elvire Popesco
+europa_hall_01,Hall number: 1 of Cinema Europa from Bucuresti,130,Cinema Europa
+europa_hall_02,Hall number: 2 of Cinema Europa from Bucuresti,90,Cinema Europa
+europa_hall_03,Hall number: 3 of Cinema Europa from Bucuresti,210,Cinema Europa
+europa_hall_04,Hall number: 4 of Cinema Europa from Bucuresti,210,Cinema Europa
+muzeul_țăranului_hall_01,Hall number: 1 of Cinema Muzeul Țăranului from Bucuresti,90,Cinema Muzeul Țăranului
+muzeul_țăranului_hall_02,Hall number: 2 of Cinema Muzeul Țăranului from Bucuresti,130,Cinema Muzeul Țăranului
+muzeul_țăranului_hall_03,Hall number: 3 of Cinema Muzeul Țăranului from Bucuresti,200,Cinema Muzeul Țăranului
+muzeul_țăranului_hall_04,Hall number: 4 of Cinema Muzeul Țăranului from Bucuresti,60,Cinema Muzeul Țăranului
+muzeul_țăranului_hall_05,Hall number: 5 of Cinema Muzeul Țăranului from Bucuresti,240,Cinema Muzeul Țăranului
+muzeul_țăranului_hall_06,Hall number: 6 of Cinema Muzeul Țăranului from Bucuresti,120,Cinema Muzeul Țăranului
+inspire_hall_01,Hall number: 1 of Inspire Cinema from Alba Iulia,220,Inspire Cinema
+inspire_hall_02,Hall number: 2 of Inspire Cinema from Alba Iulia,110,Inspire Cinema
+inspire_hall_03,Hall number: 3 of Inspire Cinema from Alba Iulia,240,Inspire Cinema
+inspire_hall_04,Hall number: 4 of Inspire Cinema from Alba Iulia,210,Inspire Cinema
+happy_hall_01,Hall number: 1 of Happy Cinema from Alexandria,180,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Alexandria,80,Happy Cinema
+happy_hall_03,Hall number: 3 of Happy Cinema from Alexandria,130,Happy Cinema
+happy_hall_04,Hall number: 4 of Happy Cinema from Alexandria,180,Happy Cinema
+happy_hall_05,Hall number: 5 of Happy Cinema from Alexandria,150,Happy Cinema
+city_atrium_hall_01,Hall number: 1 of Cinema City Atrium from Arad,90,Cinema City Atrium
+city_atrium_hall_02,Hall number: 2 of Cinema City Atrium from Arad,90,Cinema City Atrium
+city_atrium_hall_03,Hall number: 3 of Cinema City Atrium from Arad,210,Cinema City Atrium
+city_hall_01,Hall number: 1 of Cinema City from Bacau,240,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Bacau,130,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Bacau,200,Cinema City
+city_hall_04,Hall number: 4 of Cinema City from Bacau,210,Cinema City
+city_hall_05,Hall number: 5 of Cinema City from Bacau,220,Cinema City
+city_hall_06,Hall number: 6 of Cinema City from Bacau,220,Cinema City
+happy_hall_01,Hall number: 1 of Happy Cinema from Bacau,70,Happy Cinema
+city_hall_01,Hall number: 1 of Cinema City from Baia Mare,230,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Baia Mare,200,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Baia Mare,60,Cinema City
+city_hall_04,Hall number: 4 of Cinema City from Baia Mare,210,Cinema City
+city_hall_05,Hall number: 5 of Cinema City from Baia Mare,210,Cinema City
+city_hall_06,Hall number: 6 of Cinema City from Baia Mare,240,Cinema City
+happy_hall_01,Hall number: 1 of Happy Cinema from Bistrita,140,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Bistrita,130,Happy Cinema
+happy_hall_03,Hall number: 3 of Happy Cinema from Bistrita,180,Happy Cinema
+happy_hall_04,Hall number: 4 of Happy Cinema from Bistrita,100,Happy Cinema
+happy_hall_05,Hall number: 5 of Happy Cinema from Bistrita,230,Happy Cinema
+happy_hall_06,Hall number: 6 of Happy Cinema from Bistrita,240,Happy Cinema
+dacia_hall_01,Hall number: 1 of Cinema Dacia from Bistrita,110,Cinema Dacia
+dacia_hall_02,Hall number: 2 of Cinema Dacia from Bistrita,50,Cinema Dacia
+dacia_hall_03,Hall number: 3 of Cinema Dacia from Bistrita,100,Cinema Dacia
+dacia_hall_04,Hall number: 4 of Cinema Dacia from Bistrita,140,Cinema Dacia
+happy_hall_01,Hall number: 1 of Happy Cinema from Botosani,70,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Botosani,70,Happy Cinema
+happy_hall_03,Hall number: 3 of Happy Cinema from Botosani,210,Happy Cinema
+happy_hall_04,Hall number: 4 of Happy Cinema from Botosani,200,Happy Cinema
+city_hall_01,Hall number: 1 of Cinema City from Braila,190,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Braila,100,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Braila,230,Cinema City
+city_hall_04,Hall number: 4 of Cinema City from Braila,180,Cinema City
+city_hall_05,Hall number: 5 of Cinema City from Braila,160,Cinema City
+city_hall_06,Hall number: 6 of Cinema City from Braila,150,Cinema City
+one_hall_01,Hall number: 1 of Cinema One from Brasov,240,Cinema One
+one_hall_02,Hall number: 2 of Cinema One from Brasov,180,Cinema One
+one_hall_03,Hall number: 3 of Cinema One from Brasov,220,Cinema One
+one_hall_04,Hall number: 4 of Cinema One from Brasov,140,Cinema One
+city_brașov_afi_hall_01,Hall number: 1 of Cinema City Brașov AFI from Brasov,110,Cinema City Brașov AFI
+happy_hall_01,Hall number: 1 of Happy Cinema from Buzau,220,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Buzau,150,Happy Cinema
+happy_hall_03,Hall number: 3 of Happy Cinema from Buzau,50,Happy Cinema
+city_hall_01,Hall number: 1 of Cinema City from Buzau,100,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Buzau,140,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Buzau,70,Cinema City
+city_hall_04,Hall number: 4 of Cinema City from Buzau,150,Cinema City
+cityplex_victoria_hall_01,Hall number: 1 of Cinema Cityplex Victoria from Bârlad,220,Cinema Cityplex Victoria
+cityplex_victoria_hall_02,Hall number: 2 of Cinema Cityplex Victoria from Bârlad,80,Cinema Cityplex Victoria
+cityplex_victoria_hall_03,Hall number: 3 of Cinema Cityplex Victoria from Bârlad,210,Cinema Cityplex Victoria
+cityplex_victoria_hall_04,Hall number: 4 of Cinema Cityplex Victoria from Bârlad,60,Cinema Cityplex Victoria
+cityplex_victoria_hall_05,Hall number: 5 of Cinema Cityplex Victoria from Bârlad,240,Cinema Cityplex Victoria
+cityplex_victoria_hall_06,Hall number: 6 of Cinema Cityplex Victoria from Bârlad,190,Cinema Cityplex Victoria
+3d/2d_hall_01,Hall number: 1 of Cinema 3D/2D from Calarasi,100,Cinema 3D/2D
+3d/2d_hall_02,Hall number: 2 of Cinema 3D/2D from Calarasi,50,Cinema 3D/2D
+luna_hall_01,Hall number: 1 of Cinema Luna from Caransebes,180,Cinema Luna
+luna_hall_02,Hall number: 2 of Cinema Luna from Caransebes,170,Cinema Luna
+luna_hall_03,Hall number: 3 of Cinema Luna from Caransebes,180,Cinema Luna
+patria_-_loteanu_hall_01,Hall number: 1 of Cinema Patria - Loteanu from Chisinau,140,Cinema Patria - Loteanu
+patria_-_loteanu_hall_02,Hall number: 2 of Cinema Patria - Loteanu from Chisinau,80,Cinema Patria - Loteanu
+cineplex_hall_01,Hall number: 1 of Cinema Cineplex from Chisinau,190,Cinema Cineplex
+cineplex_hall_02,Hall number: 2 of Cinema Cineplex from Chisinau,140,Cinema Cineplex
+cineplex_hall_03,Hall number: 3 of Cinema Cineplex from Chisinau,90,Cinema Cineplex
+cineplex_hall_04,Hall number: 4 of Cinema Cineplex from Chisinau,130,Cinema Cineplex
+cineplex_hall_05,Hall number: 5 of Cinema Cineplex from Chisinau,110,Cinema Cineplex
+city_iulius_hall_01,Hall number: 1 of Cinema City Iulius from Cluj,200,Cinema City Iulius
+city_iulius_hall_02,Hall number: 2 of Cinema City Iulius from Cluj,150,Cinema City Iulius
+city_iulius_hall_03,Hall number: 3 of Cinema City Iulius from Cluj,80,Cinema City Iulius
+city_iulius_hall_04,Hall number: 4 of Cinema City Iulius from Cluj,110,Cinema City Iulius
+city_iulius_hall_05,Hall number: 5 of Cinema City Iulius from Cluj,70,Cinema City Iulius
+florin_piersic_hall_01,Hall number: 1 of Cinema Florin Piersic from Cluj,220,Cinema Florin Piersic
+florin_piersic_hall_02,Hall number: 2 of Cinema Florin Piersic from Cluj,150,Cinema Florin Piersic
+florin_piersic_hall_03,Hall number: 3 of Cinema Florin Piersic from Cluj,160,Cinema Florin Piersic
+florin_piersic_hall_04,Hall number: 4 of Cinema Florin Piersic from Cluj,70,Cinema Florin Piersic
+florin_piersic_hall_05,Hall number: 5 of Cinema Florin Piersic from Cluj,80,Cinema Florin Piersic
+victoria_hall_01,Hall number: 1 of Cinema Victoria from Cluj,90,Cinema Victoria
+arta_hall_01,Hall number: 1 of Cinema Arta from Cluj,190,Cinema Arta
+arta_hall_02,Hall number: 2 of Cinema Arta from Cluj,150,Cinema Arta
+city_vivo!_hall_01,Hall number: 1 of Cinema City VIVO! from Constanta,50,Cinema City VIVO!
+city_vivo!_hall_02,Hall number: 2 of Cinema City VIVO! from Constanta,170,Cinema City VIVO!
+city_vivo!_hall_03,Hall number: 3 of Cinema City VIVO! from Constanta,200,Cinema City VIVO!
+city_vivo!_hall_04,Hall number: 4 of Cinema City VIVO! from Constanta,80,Cinema City VIVO!
+patria_hall_01,Hall number: 1 of Cinema Patria from Craiova,230,Cinema Patria
+patria_hall_02,Hall number: 2 of Cinema Patria from Craiova,140,Cinema Patria
+patria_hall_03,Hall number: 3 of Cinema Patria from Craiova,90,Cinema Patria
+inspire_mercur_hall_01,Hall number: 1 of Inspire Cinema Mercur from Craiova,240,Inspire Cinema Mercur
+inspire_mercur_hall_02,Hall number: 2 of Inspire Cinema Mercur from Craiova,90,Inspire Cinema Mercur
+inspire_mercur_hall_03,Hall number: 3 of Inspire Cinema Mercur from Craiova,170,Inspire Cinema Mercur
+inspire_mercur_hall_04,Hall number: 4 of Inspire Cinema Mercur from Craiova,70,Inspire Cinema Mercur
+inspire_mercur_hall_05,Hall number: 5 of Inspire Cinema Mercur from Craiova,150,Inspire Cinema Mercur
+inspire_mercur_hall_06,Hall number: 6 of Inspire Cinema Mercur from Craiova,90,Inspire Cinema Mercur
+city_hall_01,Hall number: 1 of Cinema City from Deva,190,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Deva,50,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Deva,150,Cinema City
+melodia_hall_01,Hall number: 1 of Cinema Melodia from Dorohoi,240,Cinema Melodia
+happy_hall_01,Hall number: 1 of Happy Cinema from Focsani,200,Happy Cinema
+city_hall_01,Hall number: 1 of Cinema City from Galati,190,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Galati,120,Cinema City
+prof._ioan_manole_hall_01,Hall number: 1 of Cinema Prof. Ioan Manole from Galati,100,Cinema Prof. Ioan Manole
+prof._ioan_manole_hall_02,Hall number: 2 of Cinema Prof. Ioan Manole from Galati,190,Cinema Prof. Ioan Manole
+prof._ioan_manole_hall_03,Hall number: 3 of Cinema Prof. Ioan Manole from Galati,230,Cinema Prof. Ioan Manole
+prof._ioan_manole_hall_04,Hall number: 4 of Cinema Prof. Ioan Manole from Galati,220,Cinema Prof. Ioan Manole
+prof._ioan_manole_hall_05,Hall number: 5 of Cinema Prof. Ioan Manole from Galati,150,Cinema Prof. Ioan Manole
+prof._ioan_manole_hall_06,Hall number: 6 of Cinema Prof. Ioan Manole from Galati,130,Cinema Prof. Ioan Manole
+city_hall_01,Hall number: 1 of Cinema City from Iasi,200,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Iasi,130,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Iasi,210,Cinema City
+ateneu_hall_01,Hall number: 1 of Cinema Ateneu from Iasi,160,Cinema Ateneu
+ateneu_hall_02,Hall number: 2 of Cinema Ateneu from Iasi,90,Cinema Ateneu
+ateneu_hall_03,Hall number: 3 of Cinema Ateneu from Iasi,240,Cinema Ateneu
+ateneu_hall_04,Hall number: 4 of Cinema Ateneu from Iasi,220,Cinema Ateneu
+ateneu_hall_05,Hall number: 5 of Cinema Ateneu from Iasi,180,Cinema Ateneu
+ateneu_hall_06,Hall number: 6 of Cinema Ateneu from Iasi,230,Cinema Ateneu
+bela_lugosi_hall_01,Hall number: 1 of Cinema Bela Lugosi from Lugoj,60,Cinema Bela Lugosi
+palace_hall_01,Hall number: 1 of Cinema Palace from Oradea,160,Cinema Palace
+palace_hall_02,Hall number: 2 of Cinema Palace from Oradea,180,Cinema Palace
+palace_hall_03,Hall number: 3 of Cinema Palace from Oradea,120,Cinema Palace
+palace_hall_04,Hall number: 4 of Cinema Palace from Oradea,200,Cinema Palace
+palace_hall_05,Hall number: 5 of Cinema Palace from Oradea,240,Cinema Palace
+3d_hall_01,Hall number: 1 of Cinema 3D from Oravita,100,Cinema 3D
+3d_hall_02,Hall number: 2 of Cinema 3D from Oravita,160,Cinema 3D
+3d_hall_01,Hall number: 1 of Cinema 3D from Otelu Rosu,90,Cinema 3D
+serban_ionescu_hall_01,Hall number: 1 of Cinema Serban Ionescu from Petrosani,100,Cinema Serban Ionescu
+serban_ionescu_hall_02,Hall number: 2 of Cinema Serban Ionescu from Petrosani,210,Cinema Serban Ionescu
+serban_ionescu_hall_03,Hall number: 3 of Cinema Serban Ionescu from Petrosani,220,Cinema Serban Ionescu
+serban_ionescu_hall_04,Hall number: 4 of Cinema Serban Ionescu from Petrosani,170,Cinema Serban Ionescu
+serban_ionescu_hall_05,Hall number: 5 of Cinema Serban Ionescu from Petrosani,210,Cinema Serban Ionescu
+serban_ionescu_hall_06,Hall number: 6 of Cinema Serban Ionescu from Petrosani,180,Cinema Serban Ionescu
+mon_amour_hall_01,Hall number: 1 of Cinema Mon Amour from Piatra Neamt,240,Cinema Mon Amour
+mon_amour_hall_02,Hall number: 2 of Cinema Mon Amour from Piatra Neamt,120,Cinema Mon Amour
+mon_amour_hall_03,Hall number: 3 of Cinema Mon Amour from Piatra Neamt,70,Cinema Mon Amour
+trivale_hall_01,Hall number: 1 of Cinema Trivale from Pitesti,50,Cinema Trivale
+trivale_hall_02,Hall number: 2 of Cinema Trivale from Pitesti,210,Cinema Trivale
+trivale_hall_03,Hall number: 3 of Cinema Trivale from Pitesti,130,Cinema Trivale
+city_hall_01,Hall number: 1 of Cinema City from Pitesti,180,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Pitesti,120,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Pitesti,220,Cinema City
+city_hall_04,Hall number: 4 of Cinema City from Pitesti,90,Cinema City
+city_hall_05,Hall number: 5 of Cinema City from Pitesti,200,Cinema City
+city_hall_06,Hall number: 6 of Cinema City from Pitesti,100,Cinema City
+city_shopping_city_hall_01,Hall number: 1 of Cinema City Shopping City from Ploiesti,150,Cinema City Shopping City
+city_shopping_city_hall_02,Hall number: 2 of Cinema City Shopping City from Ploiesti,170,Cinema City Shopping City
+city_shopping_city_hall_03,Hall number: 3 of Cinema City Shopping City from Ploiesti,180,Cinema City Shopping City
+city_shopping_city_hall_04,Hall number: 4 of Cinema City Shopping City from Ploiesti,90,Cinema City Shopping City
+city_shopping_city_hall_05,Hall number: 5 of Cinema City Shopping City from Ploiesti,150,Cinema City Shopping City
+city_shopping_city_hall_06,Hall number: 6 of Cinema City Shopping City from Ploiesti,180,Cinema City Shopping City
+city_afi_palace_hall_01,Hall number: 1 of Cinema City Afi Palace from Ploiesti,150,Cinema City Afi Palace
+city_afi_palace_hall_02,Hall number: 2 of Cinema City Afi Palace from Ploiesti,160,Cinema City Afi Palace
+city_afi_palace_hall_03,Hall number: 3 of Cinema City Afi Palace from Ploiesti,180,Cinema City Afi Palace
+geo_saizescu_hall_01,Hall number: 1 of Cinema Geo Saizescu from Ramnicu Valcea,110,Cinema Geo Saizescu
+geo_saizescu_hall_02,Hall number: 2 of Cinema Geo Saizescu from Ramnicu Valcea,150,Cinema Geo Saizescu
+geo_saizescu_hall_03,Hall number: 3 of Cinema Geo Saizescu from Ramnicu Valcea,190,Cinema Geo Saizescu
+geo_saizescu_hall_04,Hall number: 4 of Cinema Geo Saizescu from Ramnicu Valcea,60,Cinema Geo Saizescu
+geo_saizescu_hall_05,Hall number: 5 of Cinema Geo Saizescu from Ramnicu Valcea,220,Cinema Geo Saizescu
+cineplexx_hall_01,Hall number: 1 of Cinema Cineplexx from Satu Mare,220,Cinema Cineplexx
+one_laserplex_hall_01,Hall number: 1 of Cinema One Laserplex from Satu Mare,100,Cinema One Laserplex
+one_laserplex_hall_02,Hall number: 2 of Cinema One Laserplex from Satu Mare,190,Cinema One Laserplex
+one_laserplex_hall_03,Hall number: 3 of Cinema One Laserplex from Satu Mare,200,Cinema One Laserplex
+one_laserplex_hall_04,Hall number: 4 of Cinema One Laserplex from Satu Mare,90,Cinema One Laserplex
+cinegold_hall_01,Hall number: 1 of Cinema CineGold from Sibiu,70,Cinema CineGold
+cinegold_hall_02,Hall number: 2 of Cinema CineGold from Sibiu,190,Cinema CineGold
+cinegold_hall_03,Hall number: 3 of Cinema CineGold from Sibiu,150,Cinema CineGold
+arta_3d_hall_01,Hall number: 1 of Cinema Arta 3D from Sibiu,110,Cinema Arta 3D
+arta_3d_hall_02,Hall number: 2 of Cinema Arta 3D from Sibiu,150,Cinema Arta 3D
+arta_3d_hall_03,Hall number: 3 of Cinema Arta 3D from Sibiu,140,Cinema Arta 3D
+arta_3d_hall_04,Hall number: 4 of Cinema Arta 3D from Sibiu,140,Cinema Arta 3D
+arta_3d_hall_05,Hall number: 5 of Cinema Arta 3D from Sibiu,230,Cinema Arta 3D
+ion_besoiu_hall_01,Hall number: 1 of Cinema Ion Besoiu from Sibiu,130,Cinema Ion Besoiu
+ion_besoiu_hall_02,Hall number: 2 of Cinema Ion Besoiu from Sibiu,50,Cinema Ion Besoiu
+ion_besoiu_hall_03,Hall number: 3 of Cinema Ion Besoiu from Sibiu,150,Cinema Ion Besoiu
+ion_besoiu_hall_04,Hall number: 4 of Cinema Ion Besoiu from Sibiu,180,Cinema Ion Besoiu
+carpați_hall_01,Hall number: 1 of Cinema Carpați from Sinaia,50,Cinema Carpați
+carpați_hall_02,Hall number: 2 of Cinema Carpați from Sinaia,180,Cinema Carpați
+carpați_hall_03,Hall number: 3 of Cinema Carpați from Sinaia,90,Cinema Carpați
+carpați_hall_04,Hall number: 4 of Cinema Carpați from Sinaia,200,Cinema Carpați
+modern_hall_01,Hall number: 1 of Cinema Modern from Suceava,140,Cinema Modern
+modern_hall_02,Hall number: 2 of Cinema Modern from Suceava,70,Cinema Modern
+modern_hall_03,Hall number: 3 of Cinema Modern from Suceava,200,Cinema Modern
+city_hall_01,Hall number: 1 of Cinema City from Suceava,60,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Suceava,70,Cinema City
+independența_hall_01,Hall number: 1 of Cinema Independența from Targoviste,220,Cinema Independența
+independența_hall_02,Hall number: 2 of Cinema Independența from Targoviste,180,Cinema Independența
+independența_hall_03,Hall number: 3 of Cinema Independența from Targoviste,90,Cinema Independența
+independența_hall_04,Hall number: 4 of Cinema Independența from Targoviste,130,Cinema Independența
+independența_hall_05,Hall number: 5 of Cinema Independența from Targoviste,70,Cinema Independența
+sergiu_nicolaescu_hall_01,Hall number: 1 of Cinema Sergiu Nicolaescu from Targu Jiu,200,Cinema Sergiu Nicolaescu
+sergiu_nicolaescu_hall_02,Hall number: 2 of Cinema Sergiu Nicolaescu from Targu Jiu,190,Cinema Sergiu Nicolaescu
+sergiu_nicolaescu_hall_03,Hall number: 3 of Cinema Sergiu Nicolaescu from Targu Jiu,130,Cinema Sergiu Nicolaescu
+sergiu_nicolaescu_hall_04,Hall number: 4 of Cinema Sergiu Nicolaescu from Targu Jiu,70,Cinema Sergiu Nicolaescu
+city_hall_01,Hall number: 1 of Cinema City from Targu Jiu,230,Cinema City
+city_hall_02,Hall number: 2 of Cinema City from Targu Jiu,220,Cinema City
+city_hall_03,Hall number: 3 of Cinema City from Targu Jiu,210,Cinema City
+cineplexx_hall_01,Hall number: 1 of Cinema Cineplexx from Targu Mures,230,Cinema Cineplexx
+cineplexx_hall_02,Hall number: 2 of Cinema Cineplexx from Targu Mures,160,Cinema Cineplexx
+cineplexx_hall_03,Hall number: 3 of Cinema Cineplexx from Targu Mures,120,Cinema Cineplexx
+cineplexx_hall_04,Hall number: 4 of Cinema Cineplexx from Targu Mures,70,Cinema Cineplexx
+cineplexx_hall_05,Hall number: 5 of Cinema Cineplexx from Targu Mures,90,Cinema Cineplexx
+cineplexx_hall_06,Hall number: 6 of Cinema Cineplexx from Targu Mures,140,Cinema Cineplexx
+city_iulius_mall_hall_01,Hall number: 1 of Cinema City Iulius Mall from Timisoara,230,Cinema City Iulius Mall
+city_iulius_mall_hall_02,Hall number: 2 of Cinema City Iulius Mall from Timisoara,240,Cinema City Iulius Mall
+city_iulius_mall_hall_03,Hall number: 3 of Cinema City Iulius Mall from Timisoara,230,Cinema City Iulius Mall
+city_iulius_mall_hall_04,Hall number: 4 of Cinema City Iulius Mall from Timisoara,210,Cinema City Iulius Mall
+city_iulius_mall_hall_05,Hall number: 5 of Cinema City Iulius Mall from Timisoara,240,Cinema City Iulius Mall
+t_imax®_hall_01,Hall number: 1 of Cinema T IMAX® from Timisoara,140,Cinema T IMAX®
+t_imax®_hall_02,Hall number: 2 of Cinema T IMAX® from Timisoara,100,Cinema T IMAX®
+t_imax®_hall_03,Hall number: 3 of Cinema T IMAX® from Timisoara,120,Cinema T IMAX®
+t_imax®_hall_04,Hall number: 4 of Cinema T IMAX® from Timisoara,90,Cinema T IMAX®
+t_imax®_hall_05,Hall number: 5 of Cinema T IMAX® from Timisoara,110,Cinema T IMAX®
+călimani_hall_01,Hall number: 1 of Cinema Călimani from Toplita,130,Cinema Călimani
+călimani_hall_02,Hall number: 2 of Cinema Călimani from Toplita,240,Cinema Călimani
+călimani_hall_03,Hall number: 3 of Cinema Călimani from Toplita,170,Cinema Călimani
+călimani_hall_04,Hall number: 4 of Cinema Călimani from Toplita,120,Cinema Călimani
+călimani_hall_05,Hall number: 5 of Cinema Călimani from Toplita,180,Cinema Călimani
+călimani_hall_06,Hall number: 6 of Cinema Călimani from Toplita,170,Cinema Călimani
+happy_hall_01,Hall number: 1 of Happy Cinema from Vaslui,70,Happy Cinema
+happy_hall_02,Hall number: 2 of Happy Cinema from Vaslui,110,Happy Cinema
+happy_hall_03,Hall number: 3 of Happy Cinema from Vaslui,210,Happy Cinema

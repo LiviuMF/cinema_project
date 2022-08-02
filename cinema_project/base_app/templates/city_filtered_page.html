@@ -1,0 +1,70 @@
+{% extends 'base_template.html' %}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Now Playing</title>
+</head>
+<body>
+<div>
+<h2 align="center">Now Playing in {{selected_city}}</h2>
+</div>
+
+<!--user filter-->
+<div align="center">
+    <form method="POST">
+        {% csrf_token %}
+        <select name="selected_cinema">
+            {% for cinema in cinema_names %}
+                <option>{{cinema}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+</div>
+
+<!--results-->
+{% for schedules_page_obj in schedules_by_city_and_cinema %}
+<div class="movies-container">
+        <div class="movie-container">
+            <div class="movie-poster">
+                <img src="{{schedules_page_obj.movie.poster_url}}"
+                     alt="{{schedules_page_obj.movie}}" width="80px" height="120">
+            </div>
+            <select class="schedule_id" name="schedule_id">
+                <option>{{schedules_page_obj.pk}}</option>
+            </select>
+            <p>Movie: {{schedules_page_obj.movie}}</p>
+            <p>Hall: {{schedules_page_obj.hall}}</p>
+            <p>Cinema: {{schedules_page_obj.hall.cinema}}</p>
+            <p>City: {{schedules_page_obj.hall.cinema.city}}</p>
+            {% if user.is_authenticated %}
+                <a class="pick_seats" href="/cinema/bookings/seats/{{schedules_page_obj.pk}}">Pick seats >></a>
+            {% endif %}
+            <p>Playing Time: {{schedules_page_obj.schedule_time}}</p>
+
+        </div>
+</div>
+{% endfor %}
+
+<!--pagination -->
+<div class="pagination" align="center">
+    <span class="step-links">
+        {% if schedules_by_city_and_cinema.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ schedules_by_city_and_cinema.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ schedules_by_city_and_cinema.number }} of {{ schedules_by_city_and_cinema.paginator.num_pages }}.
+        </span>
+        {% if schedules_by_city_and_cinema.has_next %}
+            <a href="?page={{ schedules_by_city_and_cinema.next_page_number }}">next</a>
+            <a href="?page={{ schedules_by_city_and_cinema.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
+{% endblock %}

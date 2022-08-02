@@ -15,9 +15,48 @@
     float:right;
 }
 
-.booking-button{
-    float:right;
-    margin-top:-80px;
-    width:150px;
-    height:30px;
+.pick_seats {
+    float: right;
+    margin-top: -44px;
+    width: 93px;
+    height: 28px;
+    padding: 2px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.available_seat{
+filter: hue-rotate(257deg);
+}
+
+.reserved_seat{
+filter: hue-rotate(168deg);
+}
+
+.all_seats ul{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.all_seats li {
+  list-style: none;
+  padding:6px;
+  margin:4px;
+  width:40px;
+}
+
+.all_seats{
+width:240px;
+margin:auto;
+}
+
+input.reserved_seat, input.available_seat{
+height:20px;
+width:20px;
+}
+
+.schedule_id{
+display:none;
 }

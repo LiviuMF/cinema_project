@@ -22,7 +22,7 @@ filter: invert(1) !important;
   <div class="w3-bar w3-black w3-card">
     <a href="{% url 'homepage' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cinema <img width="20px" height="20px" src="{% static '/media/test.png' %}" alt="My image"></a>
     <a href="{% url 'bookings' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Bookings</a>
-    <a href="{% url 'now_playing' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Now Playing</a>
+    <a href="{% url 'now_playing' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Currently Playing</a>
     <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact us</a>
     {% if user.is_authenticated %}
     <a class="w3-right">Hi {{ user.username }}!</a>

@@ -44,7 +44,7 @@ class Cinema(models.Model):
 class Hall(models.Model):
     name = models.CharField(max_length=200, default=None)
     description = models.TextField(max_length=400, default=None)
-    seats = models.IntegerField(default=0)
+    seat_capacity = models.IntegerField(default=0)
     cinema = models.ForeignKey(Cinema, on_delete=models.SET_DEFAULT, default=None)
 
     def __str__(self):
@@ -54,34 +54,38 @@ class Hall(models.Model):
 class Schedule(models.Model):
     movie = models.ForeignKey(
         Movie, default=None, on_delete=models.SET_DEFAULT)
-    schedule_time = models.DateTimeField(default=datetime.now())
+    schedule_time = models.DateTimeField(default=datetime.today())
+
     hall = models.ForeignKey(
         Hall, on_delete=models.CASCADE, null=True
     )
 
     def __str__(self):
-        return f"{self.movie}__{self.hall}__{self.schedule_time}"
+        return f"{self.movie} {self.hall} {self.schedule_time} {self.hall.cinema.city}"
 
 
 class Seat(models.Model):
-    is_taken = models.BooleanField(default=False)
     hall = models.ForeignKey(
         Hall, on_delete=models.CASCADE, null=True
     )
-    position = models.IntegerField(default=None)
+    name = models.CharField(max_length=100, default=None)
 
     def __str__(self):
-        return f"{self.position}__{self.hall}"
+        return self.name
 
 
 class Reservation(models.Model):
     user = models.ForeignKey(
         User, default=None, on_delete=models.CASCADE
     )
-    seat = models.OneToOneField(Seat, on_delete=models.CASCADE, default=None)
+    seat = models.ForeignKey(Seat, on_delete=models.CASCADE, default=None)
     schedule = models.ForeignKey(
         Schedule, default=None, on_delete=models.CASCADE
     )
 
     def __str__(self):
-        return f"{self.user}__{self.seat}__{self.schedule}"
+        return f"{self.user}__{self.seat}__{self.schedule.schedule_time}"
+
+    class Meta:
+        unique_together = ['seat', 'schedule']
+
