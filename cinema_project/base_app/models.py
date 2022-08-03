@@ -13,6 +13,7 @@ class Movie(models.Model):
     imdb_id = models.CharField(max_length=15, default=None)
     imdb_rating = models.FloatField(default=None)
     duration = models.IntegerField(default=None)
+    trailer_id = models.CharField(max_length=100, default='None')
 
     def __str__(self):
         return self.name

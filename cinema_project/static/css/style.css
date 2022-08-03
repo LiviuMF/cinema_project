@@ -15,7 +15,7 @@
     float:right;
 }
 
-.pick_seats {
+.pick_seats, .download_reservations {
     float: right;
     margin-top: -44px;
     width: 93px;
@@ -65,7 +65,7 @@ width:20px;
 display:none;
 }
 
-input.filter_button {
+input.all_purpose_button {
     width: 93px;
     height: 28px;
     padding: 2px;
@@ -75,9 +75,18 @@ input.filter_button {
     border:0px;
 }
 
-input.filter_button:hover, .pick_seats:hover{
+input.pick_seats:hover, .pick_seats:hover{
     color: red;
     background-color: white;
     border:1px solid red;
     transition:0.2s;
+}
+
+a.now-playing-single-movie{
+text-decoration:none;
+}
+
+.download_reservations{
+float:none !important;
+margin-top:0px !important;
 }

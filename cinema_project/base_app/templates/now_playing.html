@@ -12,6 +12,7 @@
 <h2 align="center">All movies</h2>
 {% for schedule in page_obj %}
 <div class="movies-container">
+    <a class="now-playing-single-movie" href="/cinema/movie-page/{{schedule.pk}}">
         <div class="movie-container">
             <div class="movie-poster">
                 <img src="{{schedule.movie.poster_url}}"
@@ -20,7 +21,7 @@
             <p>Year: {{schedule.movie.year}}</p>
             <p>Duration: {{schedule.movie.duration}}'</p>
             <p>Director: {{schedule.movie.director}}</p>
-        </div>
+        </div></a>
 </div>
 {% endfor %}
 

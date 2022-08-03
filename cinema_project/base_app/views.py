@@ -1,14 +1,30 @@
+import csv
+
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from ratelimit.decorators import ratelimit
 
-from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation
+from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation, Movie
 from .utils import today, send_email, next_days, fetch_from_csv
 
 
 def homepage(request):
+    user = request.user
+    if not user.is_authenticated:
+        return HttpResponse('You Must Be Logged In To Download Reservations')
+    my_reservations = User.objects.get(username=user.username).reservation_set.all()
+    reservation_details = [
+        {
+            'user': user.username,
+            'movie': reservation.schedule.movie.name,
+            'duration': reservation.schedule.movie.duration,
+            'date_time': reservation.schedule.schedule_time,
+            'seats': reservation.seat.name,
+        } for reservation in my_reservations
+    ]
+    print(reservation_details)
     return render(request, 'homepage.html')
 
 
@@ -119,3 +135,37 @@ def reservation_page(request, schedule_id):
         )
     return render(request, template_name='reservation_page.html', context={'reservation': reservation,
                                                                            'seats': seats})
+
+
+def movie_page(request, schedule_id):
+    schedule_object = Schedule.objects.get(pk=schedule_id)
+    return render(request, template_name='movie_page.html', context={'schedule': schedule_object})
+
+
+def my_reservations_page(request):
+    return render(request, template_name='my_reservations.html')
+
+
+def download_my_reservations_csv(request):
+    user = request.user
+    if not user.is_authenticated:
+        return HttpResponse('You Must Be Logged In To Download Reservations')
+    my_reservations = User.objects.get(username=user.username).reservation_set.all()
+    reservation_details = [
+        {
+            'user': user.username,
+            'movie': reservation.schedule.movie.name,
+            'duration': reservation.schedule.movie.duration,
+            'date_time': reservation.schedule.schedule_time,
+            'seats': reservation.seat.name,
+        } for reservation in my_reservations
+    ]
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="my_reservations.csv"'},
+    )
+    writer = csv.DictWriter(response, fieldnames=list(reservation_details[0].keys()))
+    writer.writeheader()
+    writer.writerows(reservation_details)
+
+    return response
