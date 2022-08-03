@@ -24,6 +24,10 @@
     color: white;
     background-color: red;
     border-radius: 5px;
+    text-decoration:none;
+    justify-content: center !important;
+    align-items: center;
+    display: flex;
 }
 
 .available_seat{
@@ -59,4 +63,21 @@ width:20px;
 
 .schedule_id{
 display:none;
+}
+
+input.filter_button {
+    width: 93px;
+    height: 28px;
+    padding: 2px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    border:0px;
+}
+
+input.filter_button:hover, .pick_seats:hover{
+    color: red;
+    background-color: white;
+    border:1px solid red;
+    transition:0.2s;
 }

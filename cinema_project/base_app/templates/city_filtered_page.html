@@ -20,7 +20,7 @@
                 <option>{{cinema}}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Filter">
+        <input type="submit" value="Filter" class="filter_button">
     </form>
 </div>
 
@@ -40,7 +40,7 @@
             <p>Cinema: {{schedules_page_obj.hall.cinema}}</p>
             <p>City: {{schedules_page_obj.hall.cinema.city}}</p>
             {% if user.is_authenticated %}
-                <a class="pick_seats" href="/cinema/bookings/seats/{{schedules_page_obj.pk}}">Pick seats >></a>
+                <a class="pick_seats" href="/cinema/bookings/seats/{{schedules_page_obj.pk}}">Pick seats ></a>
             {% endif %}
             <p>Playing Time: {{schedules_page_obj.schedule_time}}</p>
 

@@ -14,9 +14,7 @@ from .utils import send_email
 def signup(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
-        print('Method was POST')
         if form.is_valid():
-            print('Form was valid')
             user = form.save(commit=False)
             user.is_active = False
             user.save()

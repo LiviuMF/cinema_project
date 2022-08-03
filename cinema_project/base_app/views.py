@@ -110,7 +110,9 @@ def reservation_page(request, schedule_id):
         send_email(
             from_email='cinema@cinemax.ro',
             subject='Confirmation on your reservation at Cinema X',
-            html_content=f"<p>This is your confirmation for {reservation.schedule.movie}</p>"
+            html_content=f"<p>This is your confirmation from Cinema X:</p>"
+                         f"<p>Reservation nr: {reservation.pk}</p>"
+                         f"<p>Movie: {reservation.schedule.movie}</p>"
                          f"<p>Name: {user}</p>"
                          f"<p>Date/Time: {reservation.schedule.schedule_time}</p>"
                          f"<p>Seats: {seats}</p>"
