@@ -2,6 +2,9 @@ from datetime import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+
+from .utils import send_email
 
 
 class Movie(models.Model):
@@ -93,3 +96,21 @@ class Reservation(models.Model):
     class Meta:
         unique_together = ['seat', 'schedule']
 
+
+def send_email_when_movie_is_created(sender, instance, *args, **kwargs):
+    all_users = [user.email for user in User.objects.all()]
+    movie_name = instance.name
+    movie_duration = instance.duration
+    movie_director = instance.director
+
+    for user_email in all_users:
+        send_email(from_email="test@test.ro",
+                   subject=f'{movie_name} added to Cinema X',
+                   to_email=f"{user_email}",
+                   html_content=f"<p>{movie_name} now at Cinema X</p>"
+                                f"<p>Directed by: {movie_director}</p>"
+                                f"<p>Duration: {movie_duration}</p>")
+    pass
+
+
+post_save.connect(send_email_when_movie_is_created, sender=Movie)
