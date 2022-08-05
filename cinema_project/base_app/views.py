@@ -1,6 +1,5 @@
 import csv
 import uuid
-import os
 
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -43,7 +42,7 @@ def contact_page(request):
     return render(request, template_name='contact.html')
 
 
-@ratelimit(key='ip', rate='2/h')
+@ratelimit(key='ip', rate='100/h', block=True)
 def fetch_currently_playing_movies_page(request):
     next_7_days = next_days(7)
     schedules = Schedule.objects.filter(schedule_time__range=[today(), next_7_days])
@@ -163,7 +162,6 @@ def download_my_reservations_csv(request):
     writer = csv.DictWriter(response, fieldnames=list(reservation_details[0].keys()))
     writer.writeheader()
     writer.writerows(reservation_details)
-
     return response
 
 
