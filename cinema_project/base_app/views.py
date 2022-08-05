@@ -1,4 +1,6 @@
 import csv
+import uuid
+import os
 
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -11,20 +13,6 @@ from .utils import today, send_email, next_days, fetch_from_csv
 
 
 def homepage(request):
-    user = request.user
-    if not user.is_authenticated:
-        return HttpResponse('You Must Be Logged In To Download Reservations')
-    my_reservations = User.objects.get(username=user.username).reservation_set.all()
-    reservation_details = [
-        {
-            'user': user.username,
-            'movie': reservation.schedule.movie.name,
-            'duration': reservation.schedule.movie.duration,
-            'date_time': reservation.schedule.schedule_time,
-            'seats': reservation.seat.name,
-        } for reservation in my_reservations
-    ]
-    print(reservation_details)
     return render(request, 'homepage.html')
 
 
@@ -46,7 +34,8 @@ def contact_page(request):
                                 f"<p> Message: {contact_context['message']} </p>"
                                 f"<br><p> Contact Details:</p>"
                                 f"<p> Name: {contact_context['name']}</p>"
-                                f"<p> Phone: {contact_context['phone']}</p>")
+                                f"<p> Phone: {contact_context['phone']}</p>",
+                   )
         contact_message = ContactMessages(**contact_context)
         contact_message.save()
         return render(request, template_name='contact.html',
@@ -123,6 +112,9 @@ def reservation_page(request, schedule_id):
                 seat=Seat.objects.get(pk=seat)
             )
             reservation.save()
+
+        current_site = request.get_host()
+        uuid_token = uuid.uuid4()
         send_email(
             from_email='cinema@cinemax.ro',
             subject='Confirmation on your reservation at Cinema X',
@@ -132,6 +124,10 @@ def reservation_page(request, schedule_id):
                          f"<p>Name: {user}</p>"
                          f"<p>Date/Time: {reservation.schedule.schedule_time}</p>"
                          f"<p>Seats: {seats}</p>"
+                         f"<br>"
+                         f"<p>Please confirm your registration at the following url:</p>"
+                         f"<p>http://{current_site}/cinema/reservation-confirmation/{uuid_token}",
+            to_email=user.email,
         )
     return render(request, template_name='reservation_page.html', context={'reservation': reservation,
                                                                            'seats': seats})
@@ -162,10 +158,15 @@ def download_my_reservations_csv(request):
     ]
     response = HttpResponse(
         content_type='text/csv',
-        headers={'Content-Disposition': 'attachment; filename="my_reservations.csv"'},
+        headers={'Content-Disposition': f'attachment; filename="{user.username}_reservations.csv"'},
     )
     writer = csv.DictWriter(response, fieldnames=list(reservation_details[0].keys()))
     writer.writeheader()
     writer.writerows(reservation_details)
 
     return response
+
+
+def reservation_confirmation_page(request):
+    return render(request, template_name="reservation_confirmation_page.html")
+

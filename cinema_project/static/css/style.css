@@ -90,3 +90,26 @@ text-decoration:none;
 float:none !important;
 margin-top:0px !important;
 }
+
+.footer-div {
+    background-color: black;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    width: 100vw;
+    bottom: 0;
+}
+
+.footer-div i {
+filter: invert(1);
+}
+
+.footer-div i:hover{
+color:#0fc3ff;
+}
+
+.outer-div{
+padding-bottom: 80px;
+}

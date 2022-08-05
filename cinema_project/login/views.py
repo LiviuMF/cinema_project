@@ -29,7 +29,9 @@ def signup(request):
             send_email(
                 from_email=request.POST['email'],
                 subject="activation link as been sent to your email address",
-                html_content=f"<p>{activation_message}</p>")
+                html_content=f"<p>{activation_message}</p>",
+                to_email=user.email,
+            )
             return HttpResponse('Please confirm your email address to complete the registration')
     else:
         form = SignupForm()

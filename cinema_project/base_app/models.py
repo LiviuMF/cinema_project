@@ -1,11 +1,13 @@
-from django.db import models
 from datetime import datetime
+
+from django.db import models
 from django.contrib.auth.models import User
 
 
 class Movie(models.Model):
     name = models.CharField(max_length=200, default=None)
     poster_url = models.CharField(max_length=400, default=None)
+    poster_image = models.ImageField(upload_to='images', default='media/images/tt0012349.png')
     description = models.TextField(default=None)
     year = models.IntegerField(default=None)
     director = models.CharField(max_length=200, default=None)
@@ -55,7 +57,7 @@ class Hall(models.Model):
 class Schedule(models.Model):
     movie = models.ForeignKey(
         Movie, default=None, on_delete=models.SET_DEFAULT)
-    schedule_time = models.DateTimeField(default=datetime.today())
+    schedule_time = models.DateTimeField(default=datetime(2022, 1, 1, 1, 1, 1, 1))
 
     hall = models.ForeignKey(
         Hall, on_delete=models.CASCADE, null=True

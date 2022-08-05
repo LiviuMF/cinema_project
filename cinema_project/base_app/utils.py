@@ -19,6 +19,7 @@ def send_email(
         from_email: str,
         html_content: str,
         subject: str = '',
+        to_email: str = settings.CONTACT_EMAIL,
 ):
     response = requests.post(
         url=settings.SENDIN_BLUE["api_url"],
@@ -29,7 +30,7 @@ def send_email(
         data=json.dumps({
             "sender": {"name": "Cinema X ",
                         "email": f"{from_email.split('@')[0]}@test.com"},
-            "to": [{"email": "liviu.m.farcas@gmail.com",
+            "to": [{"email": f"{to_email}",
                     "name": "Cinema X HQ"}],
             "subject": subject or 'Message from Cinema X website',
             "htmlContent":
