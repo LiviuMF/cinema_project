@@ -23,7 +23,7 @@
 <div class="all_seats">
     <ul>
     {% for seat in all_seats %}
-        {% if seat in reserved_seats %}
+        {% if seat.pk in reserved_seats %}
         <li>
             <input class="reserved_seat" type="checkbox" id="{{seat.pk}}" onclick="return false;" checked>
             <label for="{{seat.pk}}">{{seat.pk}}</label>

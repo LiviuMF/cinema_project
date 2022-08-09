@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base_app',
     'login',
-    'import_export'
 ]
 
 MIDDLEWARE = [
@@ -143,5 +142,3 @@ SENDIN_BLUE = {
 LOGOUT_REDIRECT_URL = "/"
 
 CONTACT_EMAIL = env("CONTACT_EMAIL")
-
-IMPORT_EXPORT_USE_TRANSACTIONS = True

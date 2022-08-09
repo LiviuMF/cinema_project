@@ -12,8 +12,7 @@
 <h2 align="center">All movies</h2>
 {% for schedule in page_obj %}
 <div class="movies-container">
-    <a class="now-playing-single-movie" href="/cinema/movie-page/{{schedule.pk}}">
-        <div class="movie-container">
+        <div class="movie-container"><a class="now-playing-single-movie" href="/cinema/movie-page/{{schedule.pk}}">
             <div class="movie-poster">
                 <img src="{{schedule.movie.poster_url}}"
                      alt="{{schedule.movie}}" width="80px" height="120"></div>
