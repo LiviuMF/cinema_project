@@ -107,6 +107,7 @@ def seats_page(request, schedule_id):
 
 def reservation_page(request, schedule_id):
     schedule_object = Schedule.objects.get(pk=schedule_id)
+    all_reservations = []
     if request.method == 'POST':
         seats = list(request.POST.keys())[1:]
         user = User.objects.get(username=request.user)
@@ -117,7 +118,8 @@ def reservation_page(request, schedule_id):
                 seat=Seat.objects.get(pk=seat)
             )
             reservation.save()
-
+            all_reservations.append(str(reservation.pk))
+        reservation_param = "&".join(all_reservations)
         current_site = request.get_host()
         reservation_token = reservation_confirmation.make_token(user)
         send_email(
@@ -131,11 +133,12 @@ def reservation_page(request, schedule_id):
                          f"<p>Seats: {seats}</p>"
                          f"<br>"
                          f"<p>Please confirm your registration at the following url:</p>"
-                         f"<p>http://{current_site}/cinema/reservation-confirmation/{reservation_token}",
+                         f"<p>http://{current_site}/cinema/reservation-confirmation/{reservation_param}/{reservation_token}",
             to_email=user.email,
         )
-    return render(request, template_name='reservation_page.html', context={'reservation': reservation,
-                                                                           'seats': seats})
+        return render(request, template_name='reservation_page.html', context={'reservation': reservation,
+                                                                               'seats': seats,
+                                                                               'reservations': reservation_param})
 
 
 def movie_page(request, schedule_id):
@@ -171,8 +174,12 @@ def download_my_reservations_csv(request):
     return response
 
 
-def confirm_reservation(request, token):
+def confirm_reservation(request, token, reservations):
     user = request.user
     if reservation_confirmation.check_token(user, token):
+        for reservation in reservations.split('&'):
+            reservation_object = Reservation.objects.get(pk=reservation)
+            reservation_object.is_confirmed = True
+            reservation_object.save()
         return HttpResponse('Thank you for confirming your reservation')
     return HttpResponse('The reservation link is not valid')
