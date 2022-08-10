@@ -1,5 +1,4 @@
 import csv
-import uuid
 
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -9,6 +8,7 @@ from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation, Movie
 from .utils import today, send_email, next_days, fetch_from_csv
+from .token import reservation_confirmation
 
 
 def homepage(request):
@@ -119,7 +119,7 @@ def reservation_page(request, schedule_id):
             reservation.save()
 
         current_site = request.get_host()
-        uuid_token = uuid.uuid4()
+        reservation_token = reservation_confirmation.make_token(user)
         send_email(
             from_email='cinema@cinemax.ro',
             subject='Confirmation on your reservation at Cinema X',
@@ -131,7 +131,7 @@ def reservation_page(request, schedule_id):
                          f"<p>Seats: {seats}</p>"
                          f"<br>"
                          f"<p>Please confirm your registration at the following url:</p>"
-                         f"<p>http://{current_site}/cinema/reservation-confirmation/{uuid_token}",
+                         f"<p>http://{current_site}/cinema/reservation-confirmation/{reservation_token}",
             to_email=user.email,
         )
     return render(request, template_name='reservation_page.html', context={'reservation': reservation,
@@ -171,6 +171,8 @@ def download_my_reservations_csv(request):
     return response
 
 
-def reservation_confirmation_page(request):
-    return render(request, template_name="reservation_confirmation_page.html")
-
+def confirm_reservation(request, token):
+    user = request.user
+    if reservation_confirmation.check_token(user, token):
+        return HttpResponse('Thank you for confirming your reservation')
+    return HttpResponse('The reservation link is not valid')

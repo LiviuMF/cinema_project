@@ -13,4 +13,5 @@ urlpatterns = [
     path('movie-page/<str:schedule_id>', views.movie_page, name='movie_page'),
     path('my-reservations/', views.my_reservations_page, name='my_reservations'),
     path('download-my-reservations/', views.download_my_reservations_csv, name='download_my_reservations'),
+    path('reservation-confirmation/<token>', views.confirm_reservation, name='reservation_confirmation'),
 ]
