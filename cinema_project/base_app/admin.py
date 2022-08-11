@@ -6,15 +6,7 @@ from django import forms
 from django.shortcuts import render, redirect
 from django.urls import path
 
-from .models import Movie, ContactMessages, Hall, Schedule, Reservation, Cinema, Seat, models
-from .utils import fetch_from_csv
-
-admin.site.register(Cinema)
-admin.site.register(ContactMessages)
-admin.site.register(Hall)
-admin.site.register(Reservation)
-admin.site.register(Schedule)
-admin.site.register(Seat)
+from .models import Movie, ContactMessages, Hall, Schedule, Reservation, Cinema, Seat
 
 
 class CsvImport(forms.Form):
@@ -63,4 +55,10 @@ class MovieAdmin(admin.ModelAdmin):
         )
 
 
+admin.site.register(Reservation)
 admin.site.register(Movie, MovieAdmin)
+admin.site.register(Cinema)
+admin.site.register(ContactMessages)
+admin.site.register(Hall)
+admin.site.register(Schedule)
+admin.site.register(Seat)

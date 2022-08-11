@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation, Movie
-from .utils import today, send_email, next_days, fetch_from_csv
+from .utils import today, send_email, next_days, thirty_minutes_ahead
 from .token import reservation_confirmation
 
 
