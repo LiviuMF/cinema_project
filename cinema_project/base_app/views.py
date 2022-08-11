@@ -54,8 +54,7 @@ def fetch_currently_playing_movies_page(request):
 
 
 def bookings_page(request):
-    cinema_cities = list(set([cinema.city for cinema in Cinema.objects.all()]))
-    cinema_cities.sort()
+    cinema_cities = Cinema.objects.values_list('city', flat=True).order_by('city').distinct()
     selected_city = cinema_cities[0]
     if request.method == 'POST':
         if request.POST.get('selected_city'):
@@ -66,12 +65,7 @@ def bookings_page(request):
 
 
 def city_filtered_page(request, selected_city):
-    schedules_by_city = Schedule.objects.filter(
-        schedule_time__range=[today(), next_days(7)],
-        hall__cinema__city__iexact=selected_city
-    )
-    cinema_names = list(set(schedule.hall.cinema.name for schedule in schedules_by_city))
-    cinema_names.sort()
+    cinema_names = list(Cinema.objects.filter(city=selected_city).values_list('name', flat=True).order_by('name'))
     selected_cinema = cinema_names[0]
     if request.method == 'POST':
         selected_cinema = request.POST['selected_cinema']
