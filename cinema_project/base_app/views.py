@@ -65,7 +65,9 @@ def bookings_page(request):
 
 
 def city_filtered_page(request, selected_city):
-    cinema_names = list(Cinema.objects.filter(city=selected_city).values_list('name', flat=True).order_by('name'))
+    cinema_names = Schedule.objects.filter(
+        hall__cinema__city=selected_city,
+        schedule_time__range=[today(), next_days(7)]).values_list('hall__cinema__name', flat=True).distinct()
     selected_cinema = cinema_names[0]
     if request.method == 'POST':
         selected_cinema = request.POST['selected_cinema']

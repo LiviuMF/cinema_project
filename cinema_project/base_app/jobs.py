@@ -5,14 +5,11 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 
 def cancel_unconfirmed_reservations() -> None:
-    reservations_to_cancel = Reservation.objects.filter(
+    Reservation.objects.filter(
         is_confirmed=False,
         is_canceled=False,
         schedule__schedule_time__lte=thirty_minutes_ahead()
-    )
-    for reservation in reservations_to_cancel:
-        reservation.is_canceled = True
-        reservation.save()
+    ).update(is_canceled=True)
 
 
 def start():
