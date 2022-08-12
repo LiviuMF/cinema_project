@@ -51,6 +51,17 @@ class Hall(models.Model):
     seat_capacity = models.IntegerField(default=0)
     cinema = models.ForeignKey(Cinema, on_delete=models.SET_DEFAULT, default=None)
 
+    def generate_seats(self, seats_per_row: int = 5) -> list:
+        number_of_rows = int(self.seat_capacity / seats_per_row)
+        hall_rows = [chr(i) for i in range(65, 65 + number_of_rows)]
+
+        for row in hall_rows:
+            for seat in range(1, 6):
+                Seat(
+                    hall=self,
+                    name=f"{row}{seat}"
+                ).save()
+
     def __str__(self):
         return self.name
 
@@ -75,7 +86,7 @@ class Seat(models.Model):
     name = models.CharField(max_length=100, default=None)
 
     def __str__(self):
-        return self.name
+        return f"{self.hall}__{self.name}"
 
 
 class Reservation(models.Model):
@@ -112,4 +123,10 @@ def send_email_when_movie_is_created(sender, instance, *args, **kwargs):
                                     f"<p>Duration: {movie_duration}</p>")
 
 
+def generate_seats_when_a_hall_is_created(sender, instance, *args, **kwargs):
+    if kwargs['created']:
+        instance.generate_seats()
+
+
 post_save.connect(send_email_when_movie_is_created, sender=Movie)
+post_save.connect(generate_seats_when_a_hall_is_created, sender=Hall)
