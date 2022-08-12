@@ -1,0 +1,49 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Now Playing</title>
+</head>
+<body>
+<div align="center">
+<img height="500px" width="100%" src="/media/screen_pick_seats.jpg">
+    </div>
+<h2 align="center">{{schedule.movie}}</h2>
+<div align="center">
+    <p>Time: {{schedule.schedule_time}}</p>
+    <p>Cinema: {{schedule.hall.cinema}}</p>
+    <p>City: {{schedule.hall.cinema.city}}</p>
+</div>
+<h4 align="center">Pick your seats: </h4>
+<form method="POST" action="{% url 'reservation_page' schedule.pk %}">
+    {% csrf_token %}
+<div class="all_seats">
+    <ul>
+    {% for seat in all_seats %}
+        {% if seat.pk in reserved_seats %}
+        <li>
+            <input class="reserved_seat" type="checkbox" id="{{seat.pk}}" onclick="return false;" checked>
+            <label for="{{seat.pk}}">{{seat.pk}}</label>
+        </li>
+                {% else %}
+        <li>
+            <input class="available_seat" type="checkbox" name="{{seat.pk}}">
+            <label for="{{seat.pk}}">{{seat.pk}}</label>
+        </li>
+        {% endif %}
+
+    {% endfor %}
+
+        </ul>
+    <div align="center"><input type="submit" value="Book now" class="all_purpose_button"></div>
+
+</div>
+
+</form>
+</body>
+
+{% endblock%}
+

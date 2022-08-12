@@ -1,0 +1,14 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div align="center">
+    <iframe src="https://www.imdb.com/video/imdb/{{schedule.movie.trailer_id}}/imdb/embed?autoplay=false&width=640" width="640" height="360" scrolling="no"></iframe>
+<h2>{{schedule.movie.name}}</h2>
+<p>Description: {{schedule.movie.description}}</p>
+<p>Year: {{schedule.movie.year}}</p>
+<p>Duration: {{schedule.movie.duration}}'</p>
+<p>Director: {{schedule.movie.director}}</p>
+<p>IMDB: <a href="{{schedule.movie.imdb_link}}">{{schedule.movie.name}}</a></p>
+<p>Rating: {{schedule.movie.imdb_rating}}</p>
+</div>
+{% endblock %}

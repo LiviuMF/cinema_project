@@ -44,7 +44,3 @@ def fetch_from_csv(file_name) -> list[dict]:
     with open(f'static/{file_name}.csv', 'r', encoding='utf-8') as f:
         rows = csv.DictReader(f)
         return [dict(row) for row in rows]
-
-
-def thirty_minutes_ahead() -> datetime.datetime:
-    return today() + datetime.timedelta(minutes=30)

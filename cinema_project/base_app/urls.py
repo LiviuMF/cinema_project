@@ -3,13 +3,15 @@ from . import views
 
 
 urlpatterns = [
-    path('login/', views.login_user, name='login_page'),
-    path('logout/', views.logout_user, name='logout'),
     path('', views.homepage, name='homepage'),
-    path('register/', views.signup, name='register_page'),
     path('contact/', views.contact_page, name='contact'),
-    path('now_playing/', views.fetch_playing_movies, name='now_playing'),
-    path('bookings/', views.bookings, name='bookings'),
-    path('/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
-        views.activate, name='activate'),
+    path('now-playing/', views.fetch_currently_playing_movies_page, name='now_playing'),
+    path('bookings/', views.bookings_page, name='bookings'),
+    path('bookings/city/<str:selected_city>', views.city_filtered_page, name='city_filtered_page'),
+    path('bookings/seats/<str:schedule_id>', views.seats_page, name='seats_page'),
+    path('bookings/reservation-page/<str:schedule_id>', views.reservation_page, name='reservation_page'),
+    path('movie-page/<str:schedule_id>', views.movie_page, name='movie_page'),
+    path('my-reservations/', views.my_reservations_page, name='my_reservations'),
+    path('download-my-reservations/', views.download_my_reservations_csv, name='download_my_reservations'),
+    path('reservation-confirmation/<reservations>/<token>', views.confirm_reservation, name='reservation_confirmation'),
 ]

@@ -1,8 +1,6 @@
-import csv
 import datetime
 import json
 import requests
-
 from django.conf import settings
 
 
@@ -19,7 +17,7 @@ def send_email(
         from_email: str,
         html_content: str,
         subject: str = '',
-        to_email: str = settings.CONTACT_EMAIL,
+        to_email: str = 'liviu.m.farcas@gmail.com',
 ):
     response = requests.post(
         url=settings.SENDIN_BLUE["api_url"],
@@ -39,12 +37,3 @@ def send_email(
     )
     print(f'Successfully sent email with response: {response.content}')
 
-
-def fetch_from_csv(file_name) -> list[dict]:
-    with open(f'static/{file_name}.csv', 'r', encoding='utf-8') as f:
-        rows = csv.DictReader(f)
-        return [dict(row) for row in rows]
-
-
-def thirty_minutes_ahead() -> datetime.datetime:
-    return today() + datetime.timedelta(minutes=30)

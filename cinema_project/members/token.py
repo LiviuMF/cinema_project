@@ -10,4 +10,4 @@ class TokenGenerator(PasswordResetTokenGenerator):
         )
 
 
-reservation_confirmation = TokenGenerator()
+account_activation_token = TokenGenerator()

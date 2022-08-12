@@ -7,20 +7,24 @@
     <title>Now Playing</title>
 </head>
 <body>
+
+<!--filter results-->
 <h2 align="center">All movies</h2>
 {% for schedule in page_obj %}
 <div class="movies-container">
-        <div class="movie-container">
+        <div class="movie-container"><a class="now-playing-single-movie" href="/cinema/movie-page/{{schedule.pk}}">
             <div class="movie-poster">
-                <img src="{{schedule.movie.poster.url}}"
-                     alt="{{schedule.movie}}" width="120px" height="160"></div>
-            <p>Movie: {{schedule.movie}}</p>
+                <img src="{{schedule.movie.poster_url}}"
+                     alt="{{schedule.movie}}" width="80px" height="120"></div>
+            <p>Movie: {{schedule.movie.name}}</p>
             <p>Year: {{schedule.movie.year}}</p>
             <p>Duration: {{schedule.movie.duration}}'</p>
             <p>Director: {{schedule.movie.director}}</p>
-        </div>
+        </div></a>
 </div>
 {% endfor %}
+
+<!--pagination -->
 <div class="pagination" align="center">
     <span class="step-links">
         {% if page_obj.has_previous %}
