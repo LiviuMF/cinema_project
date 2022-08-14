@@ -12,6 +12,7 @@ from .token import reservation_confirmation
 
 
 def homepage(request):
+    print(Cinema.objects.get(name='Inspire Cinema'))
     return render(request, 'homepage.html')
 
 
