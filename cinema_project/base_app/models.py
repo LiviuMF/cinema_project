@@ -84,6 +84,7 @@ class Seat(models.Model):
         Hall, on_delete=models.CASCADE, null=True
     )
     name = models.CharField(max_length=100, default=None)
+    is_occupied = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.hall}__{self.name}"
