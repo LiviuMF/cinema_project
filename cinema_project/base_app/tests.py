@@ -1,6 +1,6 @@
-from django.test import TestCase
-from .models import Hall, Cinema
 import unittest
+
+from .models import Hall, Cinema
 
 
 class SeatCreationTest(unittest.TestCase):
@@ -9,7 +9,7 @@ class SeatCreationTest(unittest.TestCase):
             name="New Hall Unit Test",
             description="hall description",
             seat_capacity=20,
-            cinema=Cinema.objects.get(name='Inspire Cinema')
+            cinema=Cinema.objects.get(pk=91)
         )
         hall_obj.save()
 
@@ -18,4 +18,4 @@ class SeatCreationTest(unittest.TestCase):
 
     def test_seats_generated(self):
         new_hall = Hall.objects.get(name="New Hall Unit Test").seat_set.all()
-        self.assertEqual(len(new_hall), 20)
+        self.assertEqual(len(new_hall), 20, 'Ran tests for seat generation')

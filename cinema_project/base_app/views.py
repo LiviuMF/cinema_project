@@ -6,13 +6,12 @@ from django.http import HttpResponse
 
 from ratelimit.decorators import ratelimit
 
-from .models import ContactMessages, Schedule, Cinema, Seat, Hall, User, Reservation, Movie
-from .utils import today, send_email, next_days, thirty_minutes_ahead
+from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation
+from .utils import today, send_email, next_days
 from .token import reservation_confirmation
 
 
 def homepage(request):
-    print(Cinema.objects.get(name='Inspire Cinema'))
     return render(request, 'homepage.html')
 
 
