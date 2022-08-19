@@ -1,4 +1,6 @@
+import csv
 import datetime
+import io
 import json
 import requests
 
@@ -37,3 +39,13 @@ def send_email(
         })
     )
     print(f'Successfully sent email with response: {response.content}')
+
+
+def fetch_from_csv(uploaded_file) -> list[dict]:
+    csv_file = uploaded_file.read().decode('utf-8')
+    reader = csv.DictReader(io.StringIO(csv_file))
+    return [row for row in reader]
+
+
+def thirty_minutes_ahead() -> datetime.datetime:
+    return today() + datetime.timedelta(minutes=30)

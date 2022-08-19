@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.urls import path
 
 from .models import Movie, ContactMessages, Hall, Schedule, Reservation, Cinema, Seat
-from .utils import fetch_from_csv, send_email
+from cinema_project.utils import fetch_from_csv, send_email
 
 
 class CsvImport(forms.Form):

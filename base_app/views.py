@@ -9,7 +9,7 @@ from rest_framework import permissions
 from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation
-from .utils import today, send_email, next_days
+from cinema_project.utils import today, send_email, next_days
 from .serializers import MovieSerializer
 from .token import reservation_confirmation
 
