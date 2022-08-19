@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base_app',
     'members',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,8 @@ SENDIN_BLUE = {
 LOGOUT_REDIRECT_URL = "/"
 
 CONTACT_EMAIL = env("CONTACT_EMAIL")
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

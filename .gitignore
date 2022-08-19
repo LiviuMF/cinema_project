@@ -136,3 +136,5 @@ dmypy.json
 
 #env variables
 cinema_project/cinema_project/.env
+
+media
