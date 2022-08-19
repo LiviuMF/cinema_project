@@ -1,4 +1,3 @@
-import csv
 import datetime
 import json
 import requests
@@ -38,9 +37,3 @@ def send_email(
         })
     )
     print(f'Successfully sent email with response: {response.content}')
-
-
-def fetch_from_csv(file_name) -> list[dict]:
-    with open(f'static/{file_name}.csv', 'r', encoding='utf-8') as f:
-        rows = csv.DictReader(f)
-        return [dict(row) for row in rows]
