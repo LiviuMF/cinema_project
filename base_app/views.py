@@ -3,14 +3,11 @@ import csv
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from rest_framework import viewsets
-from rest_framework import permissions
 
 from ratelimit.decorators import ratelimit
 
 from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation
 from cinema_project.utils import today, send_email, next_days
-from .serializers import MovieSerializer
 from .token import reservation_confirmation
 
 
@@ -182,9 +179,3 @@ def confirm_reservation(request, token, reservations):
             reservation_object.save()
         return HttpResponse('Thank you for confirming your reservation')
     return HttpResponse('The reservation link is not valid')
-
-
-class MovieViewSet(viewsets.ModelViewSet):
-    queryset = Schedule.objects.filter(schedule_time__range=[today(), next_days(7)])
-    serializer_class = MovieSerializer
-    permission_classes = [permissions.IsAuthenticated]
