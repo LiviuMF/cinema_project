@@ -12,8 +12,6 @@ from .token import reservation_confirmation
 
 
 def homepage(request):
-    movie_object = Movie.objects.filter(pk__in=[120, 200])
-    Movie.objects.bulk_update(movie_object, 'name')
     return render(request, 'homepage.html')
 
 
