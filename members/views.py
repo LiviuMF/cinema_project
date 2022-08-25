@@ -8,7 +8,7 @@ from django.utils.encoding import force_bytes, force_str
 
 from .forms import SignupForm
 from .token import account_activation_token
-from .utils import send_email
+from cinema_project.utils import send_email
 
 
 def signup(request):

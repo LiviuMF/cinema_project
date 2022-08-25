@@ -1,5 +1,5 @@
 from .models import Reservation
-from .utils import thirty_minutes_ahead
+from cinema_project.utils import thirty_minutes_ahead
 
 from apscheduler.schedulers.background import BackgroundScheduler
 

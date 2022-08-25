@@ -1,13 +1,13 @@
 import csv
-import random
+
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from ratelimit.decorators import ratelimit
 
-from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation
-from .utils import today, send_email, next_days
+from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation, Movie
+from cinema_project.utils import today, send_email, next_days
 from .token import reservation_confirmation
 
 

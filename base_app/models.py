@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
-from .utils import send_email, today
+from cinema_project.utils import send_email, today
 
 
 class Movie(models.Model):
