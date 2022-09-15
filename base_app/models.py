@@ -76,7 +76,7 @@ class Schedule(models.Model):
     )
 
     def __str__(self):
-        return f"{self.movie} {self.hall} {self.schedule_time} {self.hall.cinema.city}"
+        return f"{self.movie} {self.hall} {self.schedule_time}"
 
 
 class Seat(models.Model):
