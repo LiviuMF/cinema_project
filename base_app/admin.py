@@ -33,7 +33,7 @@ class MovieAdmin(admin.ModelAdmin):
         if request.method == "POST":
             uploaded_file = request.FILES['file_upload']
             movies_from_csv = fetch_from_csv(uploaded_file)
-            existing_movie_ids = Movie.objects.all().values_list('imdb_id', flat=True)
+            existing_movie_ids = Movie.objects.values_list('imdb_id', flat=True)
 
             movies_to_upload = []
             duplicate_movies = []
@@ -111,7 +111,7 @@ class MovieAdmin(admin.ModelAdmin):
                 zip_path_to_csv = [file for file in _zip.infolist() if '.csv' in file.filename]
                 csv_file = _zip.open(zip_path_to_csv[0])
                 movies_from_csv = fetch_from_csv(csv_file)
-                existing_movie_ids = Movie.objects.all().values_list('imdb_id', flat=True)
+                existing_movie_ids = Movie.objects.values_list('imdb_id', flat=True)
 
                 movies_to_upload = []
                 duplicate_movies = []
