@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .serializers import MovieSerializer, ScheduleSerializer, MovieSerializerWithSchedules
+from .serializers import MovieSerializer, MovieSerializerWithSchedules
 from cinema_project.utils import today, next_days
 from base_app.models import Movie
 
