@@ -3,9 +3,9 @@ from rest_framework import filters
 from rest_framework import generics
 from rest_framework.response import Response
 
-from .serializers import MovieSerializer, MovieSerializerWithSchedules
+from .serializers import MovieSerializer, MovieSerializerWithSchedules, HallSerializer
 from cinema_project.utils import today, next_days
-from base_app.models import Movie
+from base_app.models import Movie, Cinema, Hall
 
 
 @api_view(['GET'])
@@ -19,6 +19,51 @@ def currently_playing(request):
 def currently_playing_with_schedule(request):
     currently_playing_movies = Movie.objects.filter(schedules__schedule_time__range=[today(), next_days(7)])
     serializer = MovieSerializerWithSchedules(currently_playing_movies, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_hall(request):
+    cinema_name = request.data['cinema']
+    request.data['cinema'] = Cinema.objects.filter(name=cinema_name).first().pk
+    serializer = HallSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print(f"Creating Hall Failed with following error: \n{serializer.errors}")
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def update_hall(request):
+    hall_name = request.data['name']
+    cinema_name = request.data['cinema']
+    request.data['cinema'] = Cinema.objects.filter(name=cinema_name).first().pk
+    hall = Hall.objects.get(name=hall_name)
+    serializer = HallSerializer(instance=hall, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_movie(request):
+    serializer = MovieSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print(f"Creating Movie Failed with following error: \n{serializer.errors}")
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def update_movie(request):
+    movie_name = request.data['name']
+    movie_instance = Movie.objects.filter(name=movie_name).first()
+    serializer = MovieSerializer(instance=movie_instance, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
     return Response(serializer.data)
 
 
