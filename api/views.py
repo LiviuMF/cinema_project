@@ -1,5 +1,7 @@
-from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import filters
+from rest_framework import generics
+from rest_framework.response import Response
 
 from .serializers import MovieSerializer, MovieSerializerWithSchedules
 from cinema_project.utils import today, next_days
@@ -18,3 +20,19 @@ def currently_playing_with_schedule(request):
     currently_playing_movies = Movie.objects.filter(schedules__schedule_time__range=[today(), next_days(7)])
     serializer = MovieSerializerWithSchedules(currently_playing_movies, many=True)
     return Response(serializer.data)
+
+
+class MovieSearchView(generics.ListAPIView):
+    search_fields = ['imdb_id', 'name']
+    filter_backends = (filters.SearchFilter,)
+    serializer_class = MovieSerializer
+
+    def get_queryset(self):
+        queryset = Movie.objects.all()
+        imdb_id = self.request.query_params.get('imdb_id', '')
+        movie_name = self.request.query_params.get('name', '')
+        if imdb_id:
+            return queryset.filter(imdb_id=imdb_id)
+        elif movie_name:
+            return queryset.filter(name=movie_name)
+        return queryset
