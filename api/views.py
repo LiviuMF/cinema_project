@@ -3,9 +3,9 @@ from rest_framework import filters
 from rest_framework import generics
 from rest_framework.response import Response
 
-from .serializers import MovieSerializer, MovieSerializerWithSchedules, HallSerializer
+from .serializers import MovieSerializer, MovieSerializerWithSchedules, HallSerializer, ScheduleSerializer, ReservationSerializer
 from cinema_project.utils import today, next_days
-from base_app.models import Movie, Cinema, Hall
+from base_app.models import Movie, Cinema, Hall, Reservation, Schedule
 
 
 @api_view(['GET'])
@@ -81,3 +81,35 @@ class MovieSearchView(generics.ListAPIView):
         elif movie_name:
             return queryset.filter(name=movie_name)
         return queryset
+
+
+@api_view(['POST'])
+def create_schedule(request):
+    serializer = ScheduleSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print(f"Creating Schedule Failed with following error: \n{serializer.errors}")
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def update_schedule(request):
+    schedule = Schedule.objects.get(pk=request.data['schedule'])
+    serializer = ScheduleSerializer(instance=schedule, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print(f"Updating Schedule Failed with following error: \n{serializer.errors}")
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def confirm_reservation(request):
+    reservation = Reservation.objects.get(pk=request.data['reservation'])
+    serializer = ReservationSerializer(instance=reservation, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print(serializer.errors)
+    return Response(serializer.data)

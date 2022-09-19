@@ -10,4 +10,7 @@ urlpatterns = [
     path('update-hall/', views.update_hall),
     path('create-movie/', views.create_movie),
     path('update-movie/', views.update_movie),
+    path('create-schedule/', views.create_schedule),
+    path('update-schedule/', views.update_schedule),
+    path('confirm-reservation/', views.confirm_reservation),
 ]
