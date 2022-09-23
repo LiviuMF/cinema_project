@@ -6,7 +6,7 @@ from django.http import HttpResponse
 
 from ratelimit.decorators import ratelimit
 
-from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation, Movie
+from .models import ContactMessages, Schedule, Cinema, Seat, User, Reservation
 from cinema_project.utils import today, send_email, next_days
 from .token import reservation_confirmation
 

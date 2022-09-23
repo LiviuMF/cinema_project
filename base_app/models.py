@@ -68,7 +68,7 @@ class Hall(models.Model):
 
 class Schedule(models.Model):
     movie = models.ForeignKey(
-        Movie, default=None, on_delete=models.SET_DEFAULT)
+        Movie, default=None, on_delete=models.SET_DEFAULT, related_name='schedules')
     schedule_time = models.DateTimeField(default=today)
 
     hall = models.ForeignKey(
@@ -76,7 +76,7 @@ class Schedule(models.Model):
     )
 
     def __str__(self):
-        return f"{self.movie} {self.hall} {self.schedule_time} {self.hall.cinema.city}"
+        return f"{self.movie} {self.hall} {self.schedule_time}"
 
 
 class Seat(models.Model):

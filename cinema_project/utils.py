@@ -42,7 +42,7 @@ def send_email(
 
 
 def fetch_from_csv(uploaded_file) -> list[dict]:
-    csv_file = uploaded_file.read().decode('utf-8')
+    csv_file = uploaded_file.read()
     reader = csv.DictReader(io.StringIO(csv_file))
     return [row for row in reader]
 
