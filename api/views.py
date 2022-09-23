@@ -7,10 +7,11 @@ from .serializers import (
     MovieSerializerWithSchedules,
     HallSerializer,
     ScheduleSerializer,
-    ReservationSerializer
+    ReservationSerializer,
+    SeatSerializer,
 )
 from cinema_project.utils import today, next_days
-from base_app.models import Movie, Cinema, Hall, Reservation, Schedule
+from base_app.models import Movie, Seat, Hall, Reservation, Schedule
 from . import permissions
 
 
@@ -82,6 +83,19 @@ class ReservationListCreateUpdate(generics.ListCreateAPIView, generics.UpdateAPI
             return Reservation.objects.all()
         else:
             return Reservation.objects.filter(user=self.request.user)
+
+    lookup_field = 'pk'
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+
+class SeatUpdate(generics.UpdateAPIView):
+    permission_classes = [permissions.StaticToken]
+    serializer_class = SeatSerializer
+
+    def get_queryset(self):
+        return Seat.objects.all()
 
     lookup_field = 'pk'
 

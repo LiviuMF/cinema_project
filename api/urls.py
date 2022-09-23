@@ -14,4 +14,5 @@ urlpatterns = [
     path('schedules/', views.ScheduleListCreateUpdate.as_view()),
     path('reservation/<int:pk>/', views.ReservationListCreateUpdate.as_view()),
     path('reservations/', views.ReservationListCreateUpdate.as_view()),
+    path('seat/<int:pk>/', views.SeatUpdate.as_view()),
 ]
